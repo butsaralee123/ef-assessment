@@ -10,37 +10,51 @@
   <style>
   * { font-family: 'Sarabun', sans-serif; }
   .heading-font { font-family: 'Prompt', sans-serif; }
-  html, body { height: 100%; margin: 0; }
-
-  .radio-option { transition: all 0.2s ease; }
-  .radio-option:hover { transform: translateY(-1px); }
-  .radio-option.selected { border-color: var(--primary); background: rgba(var(--primary-rgb), 0.15); }
-
-  .gender-option { transition: all 0.2s ease; cursor: pointer; }
-  .gender-option:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-  .gender-option.selected-male { border-color: #60a5fa; background: rgba(96, 165, 250, 0.1); }
-  .gender-option.selected-female { border-color: #f472b6; background: rgba(244, 114, 182, 0.1); }
-
+  
+  /* =========================================
+     LIGHT THEME COLORS (โทนสว่าง สุภาพ วิชาการ)
+     ========================================= */
   :root {
-    --bg: #0f172a;
-    --surface: #1e293b;
-    --surface-alt: #334155;
-    --text: #f1f5f9;
-    --text-secondary: #cbd5e1;
-    --primary: #60a5fa;
-    --primary-rgb: 96, 165, 250;
-    --primary-light: rgba(96, 165, 250, 0.1);
-    --secondary: #34d399;
-    --accent: #fbbf24;
-    --danger: #f87171;
+    --bg: #f4f7f6;          /* พื้นหลังเว็บ (เทาอ่อนอมฟ้า สบายตา) */
+    --surface: #ffffff;     /* พื้นหลังกล่องข้อความ (ขาว) */
+    --surface-alt: #e2e8f0; /* สีเส้นขอบกรอบ */
+    --text: #1e293b;        /* สีตัวอักษรหลัก (เทาเข้มเกือบดำ) */
+    --text-secondary: #475569; /* สีตัวอักษรรอง */
+    --primary: #1d4ed8;     /* สีหลัก (น้ำเงินกรมท่า ดูเป็นทางการ) */
+    --primary-rgb: 29, 78, 216;
+    --primary-light: rgba(29, 78, 216, 0.08);
+    --secondary: #059669;   /* สีเขียว (บันทึกสำเร็จ) */
+    --accent: #d97706;      /* สีส้มเหลือง */
+    --danger: #dc2626;      /* สีแดง */
   }
+
+  html, body { height: 100%; margin: 0; background: var(--bg); color: var(--text); box-sizing: border-box;}
+
+  .radio-option { transition: all 0.2s ease; border-color: var(--surface-alt); }
+  .radio-option:hover { transform: translateY(-1px); border-color: var(--primary); }
+  .radio-option.selected { border-color: var(--primary) !important; background: var(--primary-light) !important; }
+
+  .gender-option { transition: all 0.2s ease; cursor: pointer; border-color: var(--surface-alt); background: #f8fafc;}
+  .gender-option:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+  .gender-option.selected-male { border-color: #2563eb !important; background: rgba(37, 99, 235, 0.1) !important; }
+  .gender-option.selected-female { border-color: #db2777 !important; background: rgba(219, 39, 119, 0.1) !important; }
+
+  /* OVERRIDE สีเดิมที่เป็นโทนมืด ให้เป็นสว่างอัตโนมัติ */
+  .bg-black\/20 { background-color: #f1f5f9 !important; }
+  .bg-black\/10 { background-color: #ffffff !important; }
+  .hover\:bg-black\/20:hover { background-color: #e2e8f0 !important; }
+  .text-gray-100 { color: #1e293b !important; }
+  .text-gray-300 { color: #334155 !important; }
+  .text-gray-400 { color: #475569 !important; }
+  .text-gray-500 { color: #64748b !important; }
+  .border-blue-900\/30, .border-primary\/20 { border-color: #cbd5e1 !important; }
 
   .progress-bar { transition: width 0.5s ease; }
   .fade-in { animation: fadeIn 0.4s ease; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
   .skill-card { transition: all 0.3s ease; }
-  .skill-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+  .skill-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
 
   .bar-animate { animation: growBar 0.8s ease forwards; }
   @keyframes growBar { from { width: 0; } }
@@ -53,25 +67,24 @@
   /* Scrollbar styling */
   ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--surface-alt); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
   </style>
-  <style>body { box-sizing: border-box; }</style>
  </head>
- <body>
+ 
+<body>
 <div id="app" class="h-full overflow-auto w-full">
-   <!-- PAGE: FORM -->
    <div id="page-form" class="w-full">
     <div class="max-w-3xl mx-auto px-4 py-8">
-     <!-- Header -->
      <div class="text-center mb-8 fade-in">
-      <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style="background: var(--primary);">
-       <i data-lucide="brain" style="width:32px;height:32px;color:var(--bg);"></i>
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 shadow-sm" style="background: var(--primary);">
+       <i data-lucide="brain" style="width:32px;height:32px;color:#ffffff;"></i>
       </div>
       <h1 id="main-title" class="heading-font text-2xl md:text-3xl font-bold mb-1" style="color: var(--primary);">แบบประเมินทักษะทางสมอง EF</h1>
-      <p id="sub-title" class="text-gray-400">ระดับชั้นประถมศึกษาปีที่ 3 และ 6</p>
-     </div><!-- Instructions -->
-     <div class="fade-in rounded-2xl p-6 mb-6 shadow-lg border border-blue-900/30" style="background: rgba(96, 165, 250, 0.05);">
+      <p id="sub-title" class="text-gray-500">ระดับชั้นประถมศึกษาปีที่ 3 และ 6</p>
+     </div>
+     
+     <div class="fade-in rounded-2xl p-6 mb-6 shadow-sm border" style="background: #ffffff; border-color: #cbd5e1;">
       <div class="flex gap-3 mb-4"><i data-lucide="info" style="width:20px;height:20px;color:var(--primary);flex-shrink:0;margin-top:2px;"></i>
        <div class="w-full">
         <h3 class="heading-font font-semibold mb-3" style="color: var(--primary);">ข้อมูลเกี่ยวกับแบบประเมินนี้</h3>
@@ -85,51 +98,45 @@
          </div>
          <div class="flex items-center gap-2 bg-black/20 px-4 py-3 rounded-lg border border-primary/20"><span class="text-2xl font-bold heading-font" style="color: var(--primary);">T-Score</span> <span class="text-gray-300">แปลผล</span>
          </div>
-        </div><!-- 9 Skills Display -->
-        <div class="bg-black/20 p-4 rounded-lg mb-3 border border-primary/10">
+        </div>
+        
+        <div class="bg-black/20 p-4 rounded-lg mb-3 border border-primary/20">
          <p class="text-xs font-semibold mb-3 text-gray-400">📌 ทักษะทั้ง 9 ด้าน:</p>
          <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
-          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">1.</span> <span class="text-gray-300">การยับยั้ง (Inhibit)</span>
-          </div>
-          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">2.</span> <span class="text-gray-300">การตรวจสอบตนเอง (Self-Monitoring)</span>
-          </div>
-          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">3.</span> <span class="text-gray-300">การควบคุมอารมณ์ (Emotional Control)</span>
-          </div>
-          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">4.</span> <span class="text-gray-300">การปรับเปลี่ยนยืดหยุ่น (Shift)</span>
-          </div>
-          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">5.</span> <span class="text-gray-300">การริเริ่ม (Initiate)</span>
-          </div>
-          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">6.</span> <span class="text-gray-300">ความจำเพื่อใช้งาน (Working Memory)</span>
-          </div>
-          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">7.</span> <span class="text-gray-300">การวางแผนและจัดระบบ (Plan/Organize)</span>
-          </div>
-          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">8.</span> <span class="text-gray-300">การจัดระเบียบวัสดุ (Organization of Materials)</span>
-          </div>
-          <div class="flex items-start gap-2 md:col-span-2"><span class="text-sm font-bold" style="color:var(--primary);">9.</span> <span class="text-gray-300">การตรวจสอบงาน (Task Monitoring)</span>
-          </div>
+          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">1.</span> <span class="text-gray-300">การยับยั้ง (Inhibit)</span></div>
+          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">2.</span> <span class="text-gray-300">การตรวจสอบตนเอง (Self-Monitoring)</span></div>
+          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">3.</span> <span class="text-gray-300">การควบคุมอารมณ์ (Emotional Control)</span></div>
+          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">4.</span> <span class="text-gray-300">การปรับเปลี่ยนยืดหยุ่น (Shift)</span></div>
+          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">5.</span> <span class="text-gray-300">การริเริ่ม (Initiate)</span></div>
+          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">6.</span> <span class="text-gray-300">ความจำเพื่อใช้งาน (Working Memory)</span></div>
+          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">7.</span> <span class="text-gray-300">การวางแผนและจัดระบบ (Plan/Organize)</span></div>
+          <div class="flex items-start gap-2"><span class="text-sm font-bold" style="color:var(--primary);">8.</span> <span class="text-gray-300">การจัดระเบียบวัสดุ (Organization of Materials)</span></div>
+          <div class="flex items-start gap-2 md:col-span-2"><span class="text-sm font-bold" style="color:var(--primary);">9.</span> <span class="text-gray-300">การตรวจสอบงาน (Task Monitoring)</span></div>
          </div>
-        </div><!-- T-Score Interpretation -->
-        <div class="bg-black/20 p-4 rounded-lg mb-3 border border-primary/10">
+        </div>
+        
+        <div class="bg-black/20 p-4 rounded-lg mb-3 border border-primary/20">
          <p class="text-xs font-semibold mb-3 text-gray-400">📊 ระดับการแปลผล T-Score:</p>
          <div class="space-y-2 text-xs">
-          <div class="flex items-center gap-2 p-2 rounded" style="background:rgba(52, 211, 153, 0.1);border-left:3px solid #34d399;">
-           <span class="w-3 h-3 rounded-full" style="background:#34d399;"></span> <strong style="color:#86efac;">T ≥ 61:</strong> <span class="text-gray-300">สูงกว่าเกณฑ์เฉลี่ยมาก (ทักษะเด่น)</span>
+          <div class="flex items-center gap-2 p-2 rounded" style="background:rgba(5, 150, 105, 0.1);border-left:3px solid #059669;">
+           <strong style="color:#059669;">T ≥ 61:</strong> <span class="text-gray-300">สูงกว่าเกณฑ์เฉลี่ยมาก (ทักษะเด่น)</span>
           </div>
-          <div class="flex items-center gap-2 p-2 rounded" style="background:rgba(96, 165, 250, 0.1);border-left:3px solid #60a5fa;">
-           <span class="w-3 h-3 rounded-full" style="background:#60a5fa;"></span> <strong style="color:#93c5fd;">56-60:</strong> <span class="text-gray-300">สูงกว่าเกณฑ์เฉลี่ย (ทักษะดี)</span>
+          <div class="flex items-center gap-2 p-2 rounded" style="background:rgba(29, 78, 216, 0.1);border-left:3px solid #1d4ed8;">
+           <strong style="color:#1d4ed8;">56-60:</strong> <span class="text-gray-300">สูงกว่าเกณฑ์เฉลี่ย (ทักษะดี)</span>
           </div>
-          <div class="flex items-center gap-2 p-2 rounded" style="background:rgba(99, 102, 241, 0.1);border-left:3px solid #6366f1;">
-           <span class="w-3 h-3 rounded-full" style="background:#6366f1;"></span> <strong style="color:#a5b4fc;">45-55:</strong> <span class="text-gray-300">เกณฑ์เฉลี่ย (ทักษะปกติ)</span>
+          <div class="flex items-center gap-2 p-2 rounded" style="background:rgba(79, 70, 229, 0.1);border-left:3px solid #4f46e5;">
+           <strong style="color:#4f46e5;">45-55:</strong> <span class="text-gray-300">เกณฑ์เฉลี่ย (ทักษะปกติ)</span>
           </div>
-          <div class="flex items-center gap-2 p-2 rounded" style="background:rgba(251, 191, 36, 0.1);border-left:3px solid #fbbf24;">
-           <span class="w-3 h-3 rounded-full" style="background:#fbbf24;"></span> <strong style="color:#fcd34d;">40-44:</strong> <span class="text-gray-300">ต่ำกว่าเกณฑ์เฉลี่ย (ควรพัฒนา)</span>
+          <div class="flex items-center gap-2 p-2 rounded" style="background:rgba(217, 119, 6, 0.1);border-left:3px solid #d97706;">
+           <strong style="color:#d97706;">40-44:</strong> <span class="text-gray-300">ต่ำกว่าเกณฑ์เฉลี่ย (ควรพัฒนา)</span>
           </div>
-          <div class="flex items-center gap-2 p-2 rounded" style="background:rgba(248, 113, 113, 0.1);border-left:3px solid #f87171;">
-           <span class="w-3 h-3 rounded-full" style="background:#f87171;"></span> <strong style="color:#fca5a5;">T &lt; 40:</strong> <span class="text-gray-300">ต่ำกว่าเกณฑ์เฉลี่ยมาก (ควรพัฒนาอย่างยิ่ง)</span>
+          <div class="flex items-center gap-2 p-2 rounded" style="background:rgba(220, 38, 38, 0.1);border-left:3px solid #dc2626;">
+           <strong style="color:#dc2626;">T &lt; 40:</strong> <span class="text-gray-300">ต่ำกว่าเกณฑ์เฉลี่ยมาก (ควรพัฒนาอย่างยิ่ง)</span>
           </div>
          </div>
-        </div><!-- How to Use -->
-        <div class="bg-black/20 p-4 rounded-lg border border-primary/10">
+        </div>
+        
+        <div class="bg-black/20 p-4 rounded-lg border border-primary/20">
          <p class="text-xs font-semibold mb-2 text-gray-400">✅ วิธีการใช้แบบประเมิน:</p>
          <ol class="space-y-1 text-xs text-gray-300">
           <li><strong>1.</strong> กรอกข้อมูลเบื้องต้น (ชื่อโรงเรียนและเพศ)</li>
@@ -141,96 +148,106 @@
         </div>
        </div>
       </div>
-     </div><!-- Progress -->
+     </div>
+     
      <div class="mb-6 fade-in">
       <div class="flex justify-between text-sm mb-1">
-       <span id="progress-label" class="font-medium">ข้อมูลเบื้องต้น</span> <span id="progress-pct" class="font-medium" style="color:var(--primary);">0%</span>
+       <span id="progress-label" class="font-medium text-gray-400">ข้อมูลเบื้องต้น</span> <span id="progress-pct" class="font-bold" style="color:var(--primary);">0%</span>
       </div>
       <div class="w-full h-2 rounded-full" style="background:var(--surface-alt);">
        <div id="progress-fill" class="h-2 rounded-full progress-bar" style="width:0%;background:var(--primary);"></div>
       </div>
-     </div><!-- Step 0: Info -->
-     <div id="step-info" class="fade-in rounded-2xl p-6 mb-6 shadow-lg border border-primary/20" style="background:var(--surface);">
+     </div>
+     
+     <div id="step-info" class="fade-in rounded-2xl p-6 mb-6 shadow-sm border border-primary/20" style="background:var(--surface);">
       <h2 class="heading-font text-lg font-semibold mb-4 flex items-center gap-2"><i data-lucide="school" style="width:20px;height:20px;color:var(--primary);"></i> ข้อมูลเบื้องต้น</h2>
       <div class="mb-4">
-       <label class="block text-sm font-medium mb-1">ชื่อโรงเรียน</label> <input id="school-input" type="text" placeholder="พิมพ์ชื่อโรงเรียน..." class="w-full px-4 py-3 rounded-xl border border-primary/20 bg-black/20 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+       <label class="block text-sm font-medium mb-1">ชื่อโรงเรียน</label> <input id="school-input" type="text" placeholder="พิมพ์ชื่อโรงเรียน..." class="w-full px-4 py-3 rounded-xl border border-primary/20 bg-black/10 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
       </div>
       <div class="mb-4">
-       <label class="block text-sm font-medium mb-1">ระดับชั้น</label> <select id="grade-select" class="w-full px-4 py-3 rounded-xl border border-primary/20 bg-black/20 text-gray-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"> <option value="">-- เลือกระดับชั้น --</option> <option value="3">ประถมศึกษาปีที่ 3</option> <option value="6">ประถมศึกษาปีที่ 6</option> </select>
+       <label class="block text-sm font-medium mb-1">ระดับชั้น</label> <select id="grade-select" class="w-full px-4 py-3 rounded-xl border border-primary/20 bg-black/10 text-gray-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition"> <option value="">-- เลือกระดับชั้น --</option> <option value="3">ประถมศึกษาปีที่ 3</option> <option value="6">ประถมศึกษาปีที่ 6</option> </select>
       </div>
       <div class="mb-4">
        <label class="block text-sm font-medium mb-3">เพศของผู้เรียน</label>
        <div class="grid grid-cols-2 gap-4">
-        <div onclick="selectGender('male')" id="gender-male" class="gender-option flex flex-col items-center p-4 rounded-xl border-2 border-primary/20 bg-black/10 hover:bg-black/20 cursor-pointer">
+        <div onclick="selectGender('male')" id="gender-male" class="gender-option flex flex-col items-center p-4 rounded-xl border-2 hover:bg-black/20 cursor-pointer">
          <span class="text-3xl mb-1">👦</span> <span class="font-medium">เพศชาย</span>
         </div>
-        <div onclick="selectGender('female')" id="gender-female" class="gender-option flex flex-col items-center p-4 rounded-xl border-2 border-primary/20 bg-black/10 hover:bg-black/20 cursor-pointer">
+        <div onclick="selectGender('female')" id="gender-female" class="gender-option flex flex-col items-center p-4 rounded-xl border-2 hover:bg-black/20 cursor-pointer">
          <span class="text-3xl mb-1">👧</span> <span class="font-medium">เพศหญิง</span>
         </div>
        </div>
       </div>
-      <div id="info-error" class="text-red-400 text-sm mb-3 hidden">
-       กรุณากรอกข้อมูลให้ครบถ้วน
-      </div><button onclick="startQuestions()" class="w-full py-3 rounded-xl text-white font-semibold transition hover:opacity-90 icon-btn" style="background:var(--primary);"> เริ่มทำแบบประเมิน <i data-lucide="arrow-right" style="width:18px;height:18px;display:inline;vertical-align:middle;"></i> </button>
-     </div><!-- Step 1: Questions -->
+      <div id="info-error" class="text-red-500 text-sm mb-3 hidden">กรุณากรอกข้อมูลให้ครบถ้วน</div>
+      <button onclick="startQuestions()" class="w-full py-3 rounded-xl text-white font-semibold transition hover:opacity-90 icon-btn shadow-md" style="background:var(--primary);"> เริ่มทำแบบประเมิน <i data-lucide="arrow-right" style="width:18px;height:18px;display:inline;vertical-align:middle;color:#fff;"></i> </button>
+     </div>
+     
      <div id="step-questions" class="hidden">
       <div id="questions-container"></div>
       <div class="flex gap-3 mt-6 mb-8">
-       <button onclick="prevSkill()" id="btn-prev" class="flex-1 py-3 rounded-xl font-semibold border-2 transition hover:bg-black/20" style="border-color:var(--primary);color:var(--primary);"> <i data-lucide="arrow-left" style="width:16px;height:16px;display:inline;vertical-align:middle;"></i> ย้อนกลับ </button> <button onclick="nextSkill()" id="btn-next" class="flex-1 py-3 rounded-xl text-white font-semibold transition hover:opacity-90 icon-btn" style="background:var(--primary);"> ถัดไป <i data-lucide="arrow-right" style="width:16px;height:16px;display:inline;vertical-align:middle;"></i> </button>
+       <button onclick="prevSkill()" id="btn-prev" class="flex-1 py-3 rounded-xl font-semibold border-2 transition hover:bg-black/20 bg-white" style="border-color:var(--primary);color:var(--primary);"> <i data-lucide="arrow-left" style="width:16px;height:16px;display:inline;vertical-align:middle;"></i> ย้อนกลับ </button> <button onclick="nextSkill()" id="btn-next" class="flex-1 py-3 rounded-xl text-white font-semibold transition hover:opacity-90 icon-btn shadow-md" style="background:var(--primary);"> ถัดไป <i data-lucide="arrow-right" style="width:16px;height:16px;display:inline;vertical-align:middle;color:#fff;"></i> </button>
       </div>
-      <div id="question-error" class="text-red-400 text-sm text-center mb-4 hidden">
-       กรุณาตอบคำถามให้ครบทุกข้อ
-      </div>
-     </div><!-- Submit -->
+      <div id="question-error" class="text-red-500 text-sm text-center mb-4 hidden">กรุณาตอบคำถามให้ครบทุกข้อ</div>
+     </div>
+     
      <div id="step-submit" class="hidden fade-in text-center py-12">
-      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4" style="background:rgba(96, 165, 250, 0.1);">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4" style="background:rgba(5, 150, 105, 0.1);">
        <i data-lucide="check-circle" style="width:40px;height:40px;color:var(--secondary);"></i>
       </div>
       <h2 class="heading-font text-xl font-bold mb-2">ตอบคำถามครบทุกข้อแล้ว!</h2>
-      <p class="text-gray-400 mb-6">กดปุ่มด้านล่างเพื่อบันทึกและดูผลการประเมิน</p><button onclick="submitAssessment()" id="btn-submit" class="px-8 py-3 rounded-xl text-white font-semibold transition hover:opacity-90 icon-btn" style="background:var(--secondary);"> <i data-lucide="save" style="width:18px;height:18px;display:inline;vertical-align:middle;"></i> บันทึกและดูผลการประเมิน </button>
+      <p class="text-gray-400 mb-6">กดปุ่มด้านล่างเพื่อบันทึกและดูผลการประเมิน</p>
+      <button onclick="submitAssessment()" id="btn-submit" class="px-8 py-3 rounded-xl text-white font-semibold transition hover:opacity-90 icon-btn shadow-md" style="background:var(--secondary);"> <i data-lucide="save" style="width:18px;height:18px;display:inline;vertical-align:middle;color:#fff;"></i> บันทึกและดูผลการประเมิน </button>
       <div id="submit-loading" class="hidden mt-4 text-gray-400">
-       <svg class="animate-spin inline w-5 h-5 mr-2" viewbox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-       </svg> กำลังบันทึกข้อมูล...
+       <svg class="animate-spin inline w-5 h-5 mr-2" viewbox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> กำลังบันทึกข้อมูล...
       </div>
-      <div id="submit-error" class="hidden mt-4 text-red-400 text-sm"></div>
+      <div id="submit-error" class="hidden mt-4 text-red-500 text-sm"></div>
      </div>
     </div>
-   </div><!-- PAGE: RESULTS -->
+   </div>
+   
    <div id="page-results" class="hidden w-full">
     <div class="max-w-4xl mx-auto px-4 py-8">
      <div class="text-center mb-8 fade-in">
       <h1 id="result-title" class="heading-font text-2xl md:text-3xl font-bold mb-1" style="color:var(--primary);">ผลการประเมินทักษะทางสมอง EF</h1>
-      <p id="result-subtitle" class="text-gray-400">ระดับชั้นประถมศึกษาปีที่ 3 และ 6</p>
-     </div><!-- Summary Card -->
-     <div id="result-summary" class="fade-in rounded-2xl p-6 mb-6 shadow-lg border border-primary/20" style="background:var(--surface);"></div><!-- Skill Scores -->
-     <div class="fade-in rounded-2xl p-6 mb-6 shadow-lg border border-primary/20" style="background:var(--surface);">
+      <p id="result-subtitle" class="text-gray-500">ระดับชั้นประถมศึกษาปีที่ 3 และ 6</p>
+     </div>
+     
+     <div id="result-summary" class="fade-in rounded-2xl p-6 mb-6 shadow-sm border border-primary/20" style="background:var(--surface);"></div>
+     
+     <div class="fade-in rounded-2xl p-6 mb-6 shadow-sm border border-primary/20" style="background:var(--surface);">
       <h2 class="heading-font text-lg font-semibold mb-4 flex items-center gap-2"><i data-lucide="bar-chart-3" style="width:20px;height:20px;color:var(--primary);"></i> คะแนนรายทักษะ (T-Score)</h2>
       <div id="skill-bars"></div>
-     </div><!-- Component Scores -->
-     <div class="fade-in rounded-2xl p-6 mb-6 shadow-lg border border-primary/20" style="background:var(--surface);">
+     </div>
+     
+     <div class="fade-in rounded-2xl p-6 mb-6 shadow-sm border border-primary/20" style="background:var(--surface);">
       <h2 class="heading-font text-lg font-semibold mb-4 flex items-center gap-2"><i data-lucide="layers" style="width:20px;height:20px;color:var(--primary);"></i> คะแนนรายองค์ประกอบ (T-Score)</h2>
       <div id="component-bars"></div>
-     </div><!-- Overall -->
-     <div class="fade-in rounded-2xl p-6 mb-6 shadow-lg border border-primary/20" style="background:var(--surface);">
+     </div>
+     
+     <div class="fade-in rounded-2xl p-6 mb-6 shadow-sm border border-primary/20" style="background:var(--surface);">
       <h2 class="heading-font text-lg font-semibold mb-4 flex items-center gap-2"><i data-lucide="target" style="width:20px;height:20px;color:var(--primary);"></i> ภาพรวมทักษะทางสมอง EF (GEC)</h2>
       <div id="overall-result"></div>
-     </div><!-- Chart -->
-     <div class="fade-in rounded-2xl p-6 mb-6 shadow-lg border border-primary/20" style="background:var(--surface);">
+     </div>
+     
+     <div class="fade-in rounded-2xl p-6 mb-6 shadow-sm border border-primary/20" style="background:var(--surface);">
       <h2 class="heading-font text-lg font-semibold mb-4 flex items-center gap-2"><i data-lucide="pie-chart" style="width:20px;height:20px;color:var(--primary);"></i> กราฟแสดงผลรายทักษะ</h2>
       <canvas id="radar-chart" width="400" height="400" style="max-width:100%;margin:0 auto;display:block;"></canvas>
-     </div><!-- History -->
-     <div class="fade-in rounded-2xl p-6 mb-6 shadow-lg border border-primary/20" style="background:var(--surface);">
+     </div>
+     
+     <div class="fade-in rounded-2xl p-6 mb-6 shadow-sm border border-primary/20" style="background:var(--surface);">
       <h2 class="heading-font text-lg font-semibold mb-4 flex items-center gap-2"><i data-lucide="history" style="width:20px;height:20px;color:var(--primary);"></i> ประวัติการประเมิน</h2>
       <div id="history-list"></div>
-     </div><!-- School Report -->
-     <div class="fade-in rounded-2xl p-6 mb-6 shadow-lg border border-primary/20" style="background:var(--surface);">
+     </div>
+     
+     <div class="fade-in rounded-2xl p-6 mb-6 shadow-sm border border-primary/20" style="background:var(--surface);">
       <h2 class="heading-font text-lg font-semibold mb-4 flex items-center gap-2"><i data-lucide="building-2" style="width:20px;height:20px;color:var(--primary);"></i> รายงานผลการประเมินตามโรงเรียน</h2>
-      <div class="mb-4"><label class="block text-sm font-medium mb-1">🔍 ค้นหาชื่อโรงเรียน</label> <input id="school-filter-input" type="text" placeholder="กรอกชื่อโรงเรียนเพื่อค้นหา..." class="w-full px-4 py-3 rounded-xl border border-primary/20 bg-black/20 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition" oninput="filterSchoolReport()">
+      <div class="mb-4"><label class="block text-sm font-medium mb-1">🔍 ค้นหาชื่อโรงเรียน</label> <input id="school-filter-input" type="text" placeholder="กรอกชื่อโรงเรียนเพื่อค้นหา..." class="w-full px-4 py-3 rounded-xl border border-primary/20 bg-black/10 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition" oninput="filterSchoolReport()">
       </div>
       <div id="school-report" class="space-y-3"></div>
      </div>
+     
      <div class="flex gap-3 mb-8">
-      <button onclick="showForm()" class="flex-1 py-3 rounded-xl font-semibold border-2 transition hover:bg-black/20 icon-btn" style="border-color:var(--primary);color:var(--primary);"> <i data-lucide="plus" style="width:16px;height:16px;display:inline;vertical-align:middle;"></i> ประเมินใหม่ </button>
+      <button onclick="showForm()" class="flex-1 py-3 rounded-xl font-semibold border-2 transition hover:bg-black/20 bg-white icon-btn shadow-sm" style="border-color:var(--primary);color:var(--primary);"> <i data-lucide="plus" style="width:16px;height:16px;display:inline;vertical-align:middle;"></i> ประเมินใหม่ </button>
      </div>
     </div>
    </div>
@@ -238,14 +255,12 @@
 
   <script>
     // ==========================================
-    // ส่วนเชื่อมต่อ Google Sheets (เอา Web App URL ของคุณมาวางในเครื่องหมายคำพูด)
+    // ส่วนเชื่อมต่อ Google Sheets (ใช้ลิงก์ /exec หรือ /dev ของคุณได้เลย)
     // ==========================================
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzPxnMQi5M_F7fGkNCIuLvwrcKLzFSplAwweld_CUae/dev"; 
 
     // ==========================================
-    // จุดที่ 2: ส่วนของตัวแปรข้อมูลคำถามและเกณฑ์คะแนน
-    // ==========================================
-   const EF_SKILLS = [
+    const EF_SKILLS = [
   {
     name: 'การยับยั้ง (Inhibit)',
     key: 'inhibit',
@@ -355,90 +370,21 @@ const SCORE_OPTIONS = [
 ];
 
 // Norm tables
-// Grade 6 Norms
-const NORMS_MALE_G6 = {
-  inhibit:      { 0:28, 1:30, 2:32, 3:34, 4:36, 5:38, 6:40, 7:42, 8:44, 9:46, 10:48, 11:50, 12:52, 13:55, 14:58, 15:61 },
-  self_monitor: { 0:28, 1:30, 2:33, 3:36, 4:39, 5:42, 6:45, 7:48, 8:50, 9:53, 10:56, 11:59, 12:62, 13:65, 14:68, 15:71 },
-  emotional_control: { 0:27, 1:29, 2:31, 3:34, 4:37, 5:39, 6:42, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 },
-  shift:        { 0:28, 1:30, 2:33, 3:35, 4:38, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 },
-  initiate:     { 0:27, 1:29, 2:32, 3:34, 4:37, 5:39, 6:42, 7:45, 8:48, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 },
-  working_memory:{ 0:27, 1:29, 2:31, 3:34, 4:36, 5:39, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 },
-  plan_organize: { 0:27, 1:29, 2:31, 3:34, 4:36, 5:39, 6:42, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 },
-  organization_materials: { 0:28, 1:30, 2:33, 3:36, 4:39, 5:42, 6:45, 7:48, 8:50, 9:53, 10:56, 11:59, 12:62, 13:65, 14:68, 15:71 },
-  task_monitor:  { 0:27, 1:29, 2:32, 3:35, 4:38, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 }
-};
+const NORMS_MALE_G6 = { inhibit: { 0:28, 1:30, 2:32, 3:34, 4:36, 5:38, 6:40, 7:42, 8:44, 9:46, 10:48, 11:50, 12:52, 13:55, 14:58, 15:61 }, self_monitor: { 0:28, 1:30, 2:33, 3:36, 4:39, 5:42, 6:45, 7:48, 8:50, 9:53, 10:56, 11:59, 12:62, 13:65, 14:68, 15:71 }, emotional_control: { 0:27, 1:29, 2:31, 3:34, 4:37, 5:39, 6:42, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 }, shift: { 0:28, 1:30, 2:33, 3:35, 4:38, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 }, initiate: { 0:27, 1:29, 2:32, 3:34, 4:37, 5:39, 6:42, 7:45, 8:48, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 }, working_memory:{ 0:27, 1:29, 2:31, 3:34, 4:36, 5:39, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 }, plan_organize: { 0:27, 1:29, 2:31, 3:34, 4:36, 5:39, 6:42, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 }, organization_materials: { 0:28, 1:30, 2:33, 3:36, 4:39, 5:42, 6:45, 7:48, 8:50, 9:53, 10:56, 11:59, 12:62, 13:65, 14:68, 15:71 }, task_monitor: { 0:27, 1:29, 2:32, 3:35, 4:38, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 } };
+const NORMS_FEMALE_G6 = { inhibit: { 0:26, 1:28, 2:30, 3:33, 4:35, 5:37, 6:39, 7:41, 8:43, 9:46, 10:49, 11:52, 12:55, 13:58, 14:61, 15:64 }, self_monitor: { 0:27, 1:29, 2:32, 3:35, 4:38, 5:41, 6:44, 7:47, 8:50, 9:53, 10:56, 11:59, 12:62, 13:65, 14:68, 15:71 }, emotional_control: { 0:26, 1:28, 2:30, 3:33, 4:36, 5:39, 6:42, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 }, shift: { 0:27, 1:29, 2:32, 3:34, 4:37, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 }, initiate: { 0:26, 1:28, 2:31, 3:34, 4:37, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 }, working_memory:{ 0:26, 1:28, 2:31, 3:33, 4:36, 5:39, 6:42, 7:45, 8:48, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 }, plan_organize: { 0:26, 1:28, 2:31, 3:33, 4:36, 5:39, 6:42, 7:45, 8:48, 9:51, 10:54, 11:57, 12:60, 13:63, 14:66, 15:69 }, organization_materials: { 0:27, 1:29, 2:32, 3:35, 4:38, 5:41, 6:44, 7:47, 8:50, 9:53, 10:56, 11:59, 12:62, 13:65, 14:68, 15:71 }, task_monitor: { 0:26, 1:28, 2:31, 3:34, 4:37, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 } };
+const NORMS_MALE_G3 = { inhibit: { 0:25, 1:27, 2:29, 3:31, 4:33, 5:35, 6:37, 7:40, 8:42, 9:44, 10:46, 11:48, 12:51, 13:53, 14:55, 15:58 }, self_monitor: { 0:26, 1:28, 2:30, 3:33, 4:36, 5:39, 6:42, 7:45, 8:48, 9:51, 10:54, 11:57, 12:60, 13:63, 14:66, 15:69 }, emotional_control: { 0:25, 1:27, 2:29, 3:32, 4:35, 5:37, 6:40, 7:42, 8:45, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 }, shift: { 0:26, 1:28, 2:31, 3:33, 4:36, 5:38, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 }, initiate: { 0:25, 1:27, 2:30, 3:32, 4:35, 5:37, 6:40, 7:43, 8:46, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 }, working_memory:{ 0:25, 1:27, 2:29, 3:32, 4:34, 5:37, 6:39, 7:42, 8:45, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 }, plan_organize: { 0:25, 1:27, 2:29, 3:32, 4:34, 5:37, 6:40, 7:42, 8:45, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 }, organization_materials: { 0:26, 1:28, 2:31, 3:34, 4:37, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 }, task_monitor: { 0:25, 1:27, 2:30, 3:33, 4:36, 5:38, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 } };
+const NORMS_FEMALE_G3 = { inhibit: { 0:24, 1:26, 2:28, 3:31, 4:33, 5:35, 6:37, 7:39, 8:41, 9:44, 10:47, 11:50, 12:53, 13:56, 14:59, 15:62 }, self_monitor: { 0:25, 1:27, 2:30, 3:33, 4:36, 5:39, 6:42, 7:45, 8:48, 9:51, 10:54, 11:57, 12:60, 13:63, 14:66, 15:69 }, emotional_control: { 0:24, 1:26, 2:28, 3:31, 4:34, 5:37, 6:40, 7:42, 8:45, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 }, shift: { 0:25, 1:27, 2:30, 3:32, 4:35, 5:38, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 }, initiate: { 0:24, 1:26, 2:29, 3:32, 4:35, 5:38, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 }, working_memory:{ 0:24, 1:26, 2:29, 3:31, 4:34, 5:37, 6:40, 7:43, 8:46, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 }, plan_organize: { 0:24, 1:26, 2:29, 3:31, 4:34, 5:37, 6:40, 7:43, 8:46, 9:49, 10:52, 11:55, 12:58, 13:61, 14:64, 15:67 }, organization_materials: { 0:25, 1:27, 2:30, 3:33, 4:36, 5:39, 6:42, 7:45, 8:48, 9:51, 10:54, 11:57, 12:60, 13:63, 14:66, 15:69 }, task_monitor: { 0:24, 1:26, 2:29, 3:32, 4:35, 5:38, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 } };
 
-const NORMS_FEMALE_G6 = {
-  inhibit:      { 0:26, 1:28, 2:30, 3:33, 4:35, 5:37, 6:39, 7:41, 8:43, 9:46, 10:49, 11:52, 12:55, 13:58, 14:61, 15:64 },
-  self_monitor: { 0:27, 1:29, 2:32, 3:35, 4:38, 5:41, 6:44, 7:47, 8:50, 9:53, 10:56, 11:59, 12:62, 13:65, 14:68, 15:71 },
-  emotional_control: { 0:26, 1:28, 2:30, 3:33, 4:36, 5:39, 6:42, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 },
-  shift:        { 0:27, 1:29, 2:32, 3:34, 4:37, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 },
-  initiate:     { 0:26, 1:28, 2:31, 3:34, 4:37, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 },
-  working_memory:{ 0:26, 1:28, 2:31, 3:33, 4:36, 5:39, 6:42, 7:45, 8:48, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 },
-  plan_organize: { 0:26, 1:28, 2:31, 3:33, 4:36, 5:39, 6:42, 7:45, 8:48, 9:51, 10:54, 11:57, 12:60, 13:63, 14:66, 15:69 },
-  organization_materials: { 0:27, 1:29, 2:32, 3:35, 4:38, 5:41, 6:44, 7:47, 8:50, 9:53, 10:56, 11:59, 12:62, 13:65, 14:68, 15:71 },
-  task_monitor:  { 0:26, 1:28, 2:31, 3:34, 4:37, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 }
-};
-
-// Grade 3 Norms (from research)
-const NORMS_MALE_G3 = {
-  inhibit:      { 0:25, 1:27, 2:29, 3:31, 4:33, 5:35, 6:37, 7:40, 8:42, 9:44, 10:46, 11:48, 12:51, 13:53, 14:55, 15:58 },
-  self_monitor: { 0:26, 1:28, 2:30, 3:33, 4:36, 5:39, 6:42, 7:45, 8:48, 9:51, 10:54, 11:57, 12:60, 13:63, 14:66, 15:69 },
-  emotional_control: { 0:25, 1:27, 2:29, 3:32, 4:35, 5:37, 6:40, 7:42, 8:45, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 },
-  shift:        { 0:26, 1:28, 2:31, 3:33, 4:36, 5:38, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 },
-  initiate:     { 0:25, 1:27, 2:30, 3:32, 4:35, 5:37, 6:40, 7:43, 8:46, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 },
-  working_memory:{ 0:25, 1:27, 2:29, 3:32, 4:34, 5:37, 6:39, 7:42, 8:45, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 },
-  plan_organize: { 0:25, 1:27, 2:29, 3:32, 4:34, 5:37, 6:40, 7:42, 8:45, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 },
-  organization_materials: { 0:26, 1:28, 2:31, 3:34, 4:37, 5:40, 6:43, 7:46, 8:49, 9:52, 10:55, 11:58, 12:61, 13:64, 14:67, 15:70 },
-  task_monitor:  { 0:25, 1:27, 2:30, 3:33, 4:36, 5:38, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 }
-};
-
-const NORMS_FEMALE_G3 = {
-  inhibit:      { 0:24, 1:26, 2:28, 3:31, 4:33, 5:35, 6:37, 7:39, 8:41, 9:44, 10:47, 11:50, 12:53, 13:56, 14:59, 15:62 },
-  self_monitor: { 0:25, 1:27, 2:30, 3:33, 4:36, 5:39, 6:42, 7:45, 8:48, 9:51, 10:54, 11:57, 12:60, 13:63, 14:66, 15:69 },
-  emotional_control: { 0:24, 1:26, 2:28, 3:31, 4:34, 5:37, 6:40, 7:42, 8:45, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 },
-  shift:        { 0:25, 1:27, 2:30, 3:32, 4:35, 5:38, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 },
-  initiate:     { 0:24, 1:26, 2:29, 3:32, 4:35, 5:38, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 },
-  working_memory:{ 0:24, 1:26, 2:29, 3:31, 4:34, 5:37, 6:40, 7:43, 8:46, 9:48, 10:51, 11:54, 12:57, 13:60, 14:63, 15:66 },
-  plan_organize: { 0:24, 1:26, 2:29, 3:31, 4:34, 5:37, 6:40, 7:43, 8:46, 9:49, 10:52, 11:55, 12:58, 13:61, 14:64, 15:67 },
-  organization_materials: { 0:25, 1:27, 2:30, 3:33, 4:36, 5:39, 6:42, 7:45, 8:48, 9:51, 10:54, 11:57, 12:60, 13:63, 14:66, 15:69 },
-  task_monitor:  { 0:24, 1:26, 2:29, 3:32, 4:35, 5:38, 6:41, 7:44, 8:47, 9:50, 10:53, 11:56, 12:59, 13:62, 14:65, 15:68 }
-};
-
-// Component Norms Grade 6
-const COMPONENT_NORMS_MALE_G6 = {
-  bri: { 0:25, 2:27, 4:29, 6:31, 8:33, 10:35, 12:37, 14:39, 16:41, 18:43, 20:45, 22:47, 24:50, 26:53, 28:56, 30:59 },
-  eri: { 0:25, 2:27, 4:29, 6:31, 8:33, 10:35, 12:37, 14:39, 16:41, 18:43, 20:46, 22:49, 24:52, 26:55, 28:58, 30:61 },
-  cri: { 0:22, 3:24, 6:26, 9:28, 12:30, 15:33, 18:36, 21:39, 24:42, 27:45, 30:48, 33:50, 36:53, 39:56, 42:59, 45:62, 48:65, 51:68, 54:71, 57:74, 60:77, 63:80, 66:83, 69:86, 72:89, 75:92 }
-};
-const COMPONENT_NORMS_FEMALE_G6 = {
-  bri: { 0:24, 2:26, 4:28, 6:30, 8:32, 10:34, 12:36, 14:38, 16:40, 18:43, 20:46, 22:49, 24:52, 26:55, 28:58, 30:61 },
-  eri: { 0:24, 2:26, 4:28, 6:30, 8:33, 10:36, 12:38, 14:40, 16:42, 18:44, 20:47, 22:50, 24:53, 26:56, 28:59, 30:62 },
-  cri: { 0:21, 3:23, 6:25, 9:27, 12:30, 15:33, 18:36, 21:39, 24:42, 27:45, 30:48, 33:51, 36:54, 39:57, 42:60, 45:63, 48:66, 51:69, 54:72, 57:75, 60:78, 63:81, 66:84, 69:87, 72:90, 75:93 }
-};
-
-// Component Norms Grade 3
-const COMPONENT_NORMS_MALE_G3 = {
-  bri: { 0:23, 2:25, 4:27, 6:29, 8:31, 10:33, 12:35, 14:37, 16:39, 18:41, 20:43, 22:45, 24:48, 26:51, 28:54, 30:57 },
-  eri: { 0:23, 2:25, 4:27, 6:29, 8:31, 10:33, 12:35, 14:37, 16:39, 18:41, 20:44, 22:47, 24:50, 26:53, 28:56, 30:59 },
-  cri: { 0:20, 3:22, 6:24, 9:26, 12:28, 15:31, 18:34, 21:37, 24:40, 27:43, 30:46, 33:48, 36:51, 39:54, 42:57, 45:60, 48:63, 51:66, 54:69, 57:72, 60:75, 63:78, 66:81, 69:84, 72:87, 75:90 }
-};
-const COMPONENT_NORMS_FEMALE_G3 = {
-  bri: { 0:22, 2:24, 4:26, 6:28, 8:30, 10:32, 12:34, 14:36, 16:38, 18:41, 20:44, 22:47, 24:50, 26:53, 28:56, 30:59 },
-  eri: { 0:22, 2:24, 4:26, 6:28, 8:31, 10:34, 12:36, 14:38, 16:40, 18:42, 20:45, 22:48, 24:51, 26:54, 28:57, 30:60 },
-  cri: { 0:19, 3:21, 6:23, 9:25, 12:28, 15:31, 18:34, 21:37, 24:40, 27:43, 30:46, 33:49, 36:52, 39:55, 42:58, 45:61, 48:64, 51:67, 54:70, 57:73, 60:76, 63:79, 66:82, 69:85, 72:88, 75:91 }
-};
+const COMPONENT_NORMS_MALE_G6 = { bri: { 0:25, 2:27, 4:29, 6:31, 8:33, 10:35, 12:37, 14:39, 16:41, 18:43, 20:45, 22:47, 24:50, 26:53, 28:56, 30:59 }, eri: { 0:25, 2:27, 4:29, 6:31, 8:33, 10:35, 12:37, 14:39, 16:41, 18:43, 20:46, 22:49, 24:52, 26:55, 28:58, 30:61 }, cri: { 0:22, 3:24, 6:26, 9:28, 12:30, 15:33, 18:36, 21:39, 24:42, 27:45, 30:48, 33:50, 36:53, 39:56, 42:59, 45:62, 48:65, 51:68, 54:71, 57:74, 60:77, 63:80, 66:83, 69:86, 72:89, 75:92 } };
+const COMPONENT_NORMS_FEMALE_G6 = { bri: { 0:24, 2:26, 4:28, 6:30, 8:32, 10:34, 12:36, 14:38, 16:40, 18:43, 20:46, 22:49, 24:52, 26:55, 28:58, 30:61 }, eri: { 0:24, 2:26, 4:28, 6:30, 8:33, 10:36, 12:38, 14:40, 16:42, 18:44, 20:47, 22:50, 24:53, 26:56, 28:59, 30:62 }, cri: { 0:21, 3:23, 6:25, 9:27, 12:30, 15:33, 18:36, 21:39, 24:42, 27:45, 30:48, 33:51, 36:54, 39:57, 42:60, 45:63, 48:66, 51:69, 54:72, 57:75, 60:78, 63:81, 66:84, 69:87, 72:90, 75:93 } };
+const COMPONENT_NORMS_MALE_G3 = { bri: { 0:23, 2:25, 4:27, 6:29, 8:31, 10:33, 12:35, 14:37, 16:39, 18:41, 20:43, 22:45, 24:48, 26:51, 28:54, 30:57 }, eri: { 0:23, 2:25, 4:27, 6:29, 8:31, 10:33, 12:35, 14:37, 16:39, 18:41, 20:44, 22:47, 24:50, 26:53, 28:56, 30:59 }, cri: { 0:20, 3:22, 6:24, 9:26, 12:28, 15:31, 18:34, 21:37, 24:40, 27:43, 30:46, 33:48, 36:51, 39:54, 42:57, 45:60, 48:63, 51:66, 54:69, 57:72, 60:75, 63:78, 66:81, 69:84, 72:87, 75:90 } };
+const COMPONENT_NORMS_FEMALE_G3 = { bri: { 0:22, 2:24, 4:26, 6:28, 8:30, 10:32, 12:34, 14:36, 16:38, 18:41, 20:44, 22:47, 24:50, 26:53, 28:56, 30:59 }, eri: { 0:22, 2:24, 4:26, 6:28, 8:31, 10:34, 12:36, 14:38, 16:40, 18:42, 20:45, 22:48, 24:51, 26:54, 28:57, 30:60 }, cri: { 0:19, 3:21, 6:23, 9:25, 12:28, 15:31, 18:34, 21:37, 24:40, 27:43, 30:46, 33:49, 36:52, 39:55, 42:58, 45:61, 48:64, 51:67, 54:70, 57:73, 60:76, 63:79, 66:82, 69:85, 72:88, 75:91 } };
 
 const GEC_NORMS_MALE_G6 = { 0:20, 10:24, 20:28, 30:32, 40:36, 50:40, 55:42, 60:44, 65:46, 70:48, 75:50, 80:52, 85:54, 90:56, 95:58, 100:60, 105:62, 110:65, 115:68, 120:71, 125:74, 130:77, 135:80 };
 const GEC_NORMS_FEMALE_G6 = { 0:19, 10:23, 20:27, 30:31, 40:35, 50:39, 55:41, 60:43, 65:45, 70:47, 75:50, 80:52, 85:54, 90:57, 95:59, 100:61, 105:64, 110:67, 115:70, 120:73, 125:76, 130:79, 135:82 };
 const GEC_NORMS_MALE_G3 = { 0:18, 10:22, 20:26, 30:30, 40:34, 50:38, 55:40, 60:42, 65:44, 70:46, 75:48, 80:50, 85:52, 90:54, 95:56, 100:58, 105:60, 110:63, 115:66, 120:69, 125:72, 130:75, 135:78 };
 const GEC_NORMS_FEMALE_G3 = { 0:17, 10:21, 20:25, 30:29, 40:33, 50:37, 55:39, 60:41, 65:43, 70:45, 75:48, 80:50, 85:52, 90:55, 95:57, 100:59, 105:62, 110:65, 115:68, 120:71, 125:74, 130:77, 135:80 };
 
-    // ==========================================
-    // จุดที่ 3: ส่วนของฟังก์ชันการทำงานทั้งหมด
-    // ==========================================
-    /* นำโค้ดฟังก์ชันทั้งหมดจากไฟล์ต้นฉบับมาวาง (เช่น lookupTScore, startQuestions, selectAnswer, nextSkill, computeScores ฯลฯ)
-       **ยกเว้น** ฟังก์ชัน submitAssessment เดิม ไม่ต้องเอามา */
 function lookupTScore(normTable, rawScore) {
   const keys = Object.keys(normTable).map(Number).sort((a,b) => a - b);
   let closest = keys[0];
@@ -449,12 +395,13 @@ function lookupTScore(normTable, rawScore) {
   return normTable[closest];
 }
 
+// ปรับสี T-Score ให้เข้ากับ Light Theme
 function interpretTScore(t) {
-  if (t >= 61) return { level: 'สูงกว่าเกณฑ์เฉลี่ยมาก', color: '#34d399', bg: 'rgba(52, 211, 153, 0.1)' };
-  if (t >= 56) return { level: 'สูงกว่าเกณฑ์เฉลี่ย', color: '#60a5fa', bg: 'rgba(96, 165, 250, 0.1)' };
-  if (t >= 45) return { level: 'เกณฑ์เฉลี่ย', color: '#6366f1', bg: 'rgba(99, 102, 241, 0.1)' };
-  if (t >= 40) return { level: 'ต่ำกว่าเกณฑ์เฉลี่ย (ควรพัฒนา)', color: '#fbbf24', bg: 'rgba(251, 191, 36, 0.1)' };
-  return { level: 'ต่ำกว่าเกณฑ์เฉลี่ยมาก (ควรพัฒนาอย่างยิ่ง)', color: '#f87171', bg: 'rgba(248, 113, 113, 0.1)' };
+  if (t >= 61) return { level: 'สูงกว่าเกณฑ์เฉลี่ยมาก', color: '#059669', bg: 'rgba(5, 150, 105, 0.1)' };
+  if (t >= 56) return { level: 'สูงกว่าเกณฑ์เฉลี่ย', color: '#1d4ed8', bg: 'rgba(29, 78, 216, 0.1)' };
+  if (t >= 45) return { level: 'เกณฑ์เฉลี่ย', color: '#4f46e5', bg: 'rgba(79, 70, 229, 0.1)' };
+  if (t >= 40) return { level: 'ต่ำกว่าเกณฑ์เฉลี่ย (ควรพัฒนา)', color: '#d97706', bg: 'rgba(217, 119, 6, 0.1)' };
+  return { level: 'ต่ำกว่าเกณฑ์เฉลี่ยมาก (ควรพัฒนาอย่างยิ่ง)', color: '#dc2626', bg: 'rgba(220, 38, 38, 0.1)' };
 }
 
 // ===== State =====
@@ -469,8 +416,8 @@ let recordIndex = 0;
 // ===== UI Functions =====
 function selectGender(g) {
   selectedGender = g;
-  document.getElementById('gender-male').className = 'gender-option flex flex-col items-center p-4 rounded-xl border-2 bg-black/10 hover:bg-black/20 ' + (g === 'male' ? 'selected-male border-blue-400' : 'border-primary/20');
-  document.getElementById('gender-female').className = 'gender-option flex flex-col items-center p-4 rounded-xl border-2 bg-black/10 hover:bg-black/20 ' + (g === 'female' ? 'selected-female border-pink-400' : 'border-primary/20');
+  document.getElementById('gender-male').className = 'gender-option flex flex-col items-center p-4 rounded-xl border-2 hover:bg-black/20 cursor-pointer ' + (g === 'male' ? 'selected-male' : '');
+  document.getElementById('gender-female').className = 'gender-option flex flex-col items-center p-4 rounded-xl border-2 hover:bg-black/20 cursor-pointer ' + (g === 'female' ? 'selected-female' : '');
 }
 
 function startQuestions() {
@@ -495,7 +442,7 @@ function renderSkillQuestions() {
   let qNum = 0;
   for (let i = 0; i < currentSkillIdx; i++) qNum += EF_SKILLS[i].questions.length;
 
-  let html = `<div class="fade-in rounded-2xl p-6 shadow-lg border border-primary/20" style="background:var(--surface);">
+  let html = `<div class="fade-in rounded-2xl p-6 shadow-sm border border-primary/20" style="background:var(--surface);">
     <div class="flex items-center gap-2 mb-1">
       <span class="text-xs font-semibold px-2 py-1 rounded-full" style="background:var(--primary-light);color:var(--primary);">ทักษะที่ ${currentSkillIdx+1}/9</span>
     </div>
@@ -504,13 +451,13 @@ function renderSkillQuestions() {
   skill.questions.forEach((q, qi) => {
     const globalIdx = qNum + qi;
     html += `<div class="mb-5 pb-5 ${qi < skill.questions.length-1 ? 'border-b border-primary/20' : ''}">
-      <p class="font-medium mb-3 text-sm"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs text-white mr-1" style="background:var(--primary);">${globalIdx+1}</span> ${q}</p>
+      <p class="font-medium mb-3 text-sm text-gray-100"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs text-white mr-1" style="background:var(--primary);">${globalIdx+1}</span> ${q}</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-2">`;
     SCORE_OPTIONS.forEach(opt => {
       const selected = answers[`q${globalIdx+1}`] === opt.value;
-      html += `<div onclick="selectAnswer(${globalIdx+1}, ${opt.value})" class="radio-option cursor-pointer rounded-xl border-2 p-3 text-center transition ${selected ? 'selected' : 'border-primary/20 bg-black/10 hover:bg-black/20'}" style="${selected ? 'border-color:var(--primary);background:var(--primary-light);' : ''}">
+      html += `<div onclick="selectAnswer(${globalIdx+1}, ${opt.value})" class="radio-option cursor-pointer rounded-xl border-2 p-3 text-center transition bg-black/10 hover:bg-black/20 ${selected ? 'selected' : ''}" style="${selected ? 'border-color:var(--primary);background:var(--primary-light);' : ''}">
         <div class="text-lg">${opt.emoji}</div>
-        <div class="font-semibold text-sm">${opt.label}</div>
+        <div class="font-semibold text-sm text-gray-100">${opt.label}</div>
         <div class="text-xs text-gray-400">(${opt.value})</div>
       </div>`;
     });
@@ -646,7 +593,6 @@ function showForm() {
   document.getElementById('step-info').classList.remove('hidden');
   document.getElementById('step-questions').classList.add('hidden');
   document.getElementById('step-submit').classList.add('hidden');
-  document.getElementById('step-filter').classList.add('hidden');
 
   selectedGender = '';
   selectedGrade = '';
@@ -655,8 +601,6 @@ function showForm() {
   document.getElementById('school-input').value = '';
   document.getElementById('grade-select').value = '';
   selectGender('');
-  document.getElementById('gender-male').className = 'gender-option flex flex-col items-center p-4 rounded-xl border-2 border-primary/20 bg-black/10 hover:bg-black/20';
-  document.getElementById('gender-female').className = 'gender-option flex flex-col items-center p-4 rounded-xl border-2 border-primary/20 bg-black/10 hover:bg-black/20';
   updateProgress();
   window.scrollTo({ top: 0 });
 }
@@ -672,12 +616,12 @@ function renderResults(rec) {
   document.getElementById('result-summary').innerHTML = `
     <div class="flex flex-wrap items-center gap-4 mb-4">
       <div>
-        <h3 class="heading-font font-bold text-lg">${rec.school_name}</h3>
+        <h3 class="heading-font font-bold text-lg text-gray-100">${rec.school_name}</h3>
         <p class="text-sm text-gray-400">${genderLabel} • ${gradeLabel} • ${dateStr}</p>
       </div>
       <div class="ml-auto text-center">
         <div class="text-3xl font-bold heading-font" style="color:${gecInterp.color};">T ${rec.gec_t}</div>
-        <span class="score-badge" style="background:${gecInterp.bg};color:${gecInterp.color};">${gecInterp.level}</span>
+        <span class="score-badge mt-1" style="background:${gecInterp.bg};color:${gecInterp.color};">${gecInterp.level}</span>
       </div>
     </div>
   `;
@@ -696,9 +640,9 @@ function renderResults(rec) {
     const pct = Math.min(100, (t / 80) * 100);
     skillHtml += `<div class="mb-4">
       <div class="flex justify-between items-center mb-1">
-        <span class="text-sm font-medium">${skillNames[skill.key]}</span>
+        <span class="text-sm font-medium text-gray-100">${skillNames[skill.key]}</span>
         <div class="flex items-center gap-2">
-          <span class="text-xs text-gray-500">Raw: ${raw}</span>
+          <span class="text-xs text-gray-400">Raw: ${raw}</span>
           <span class="text-sm font-bold" style="color:${interp.color};">T ${t}</span>
         </div>
       </div>
@@ -722,11 +666,11 @@ function renderResults(rec) {
     compHtml += `<div class="mb-5 p-4 rounded-xl border border-primary/20" style="background:${interp.bg};">
       <div class="flex justify-between items-center mb-1">
         <div>
-          <span class="font-semibold text-sm">${comp.name}</span>
+          <span class="font-semibold text-sm text-gray-100">${comp.name}</span>
           <div class="text-xs text-gray-400">${comp.desc}</div>
         </div>
         <div class="text-right">
-          <span class="text-xs text-gray-500">Raw: ${comp.raw}</span>
+          <span class="text-xs text-gray-400">Raw: ${comp.raw}</span>
           <div class="text-lg font-bold heading-font" style="color:${interp.color};">T ${comp.t}</div>
         </div>
       </div>
@@ -741,16 +685,16 @@ function renderResults(rec) {
   const gecPct = Math.min(100, (rec.gec_t / 80) * 100);
   document.getElementById('overall-result').innerHTML = `
     <div class="text-center py-4">
-      <div class="inline-flex items-center justify-center w-24 h-24 rounded-full mb-3" style="background:${gecInterp.bg};">
+      <div class="inline-flex items-center justify-center w-24 h-24 rounded-full mb-3 shadow-sm" style="background:${gecInterp.bg}; border: 2px solid ${gecInterp.color}">
         <span class="text-3xl font-bold heading-font" style="color:${gecInterp.color};">T ${rec.gec_t}</span>
       </div>
-      <div class="text-xs text-gray-500 mb-1">คะแนนดิบรวม: ${rec.gec_raw}</div>
+      <div class="text-xs text-gray-400 mb-1">คะแนนดิบรวม: ${rec.gec_raw}</div>
       <div class="mb-4"><span class="score-badge text-sm" style="background:${gecInterp.bg};color:${gecInterp.color};">${gecInterp.level}</span></div>
       <div class="max-w-md mx-auto">
         <div class="w-full h-4 rounded-full overflow-hidden" style="background:var(--surface-alt);">
           <div class="h-4 rounded-full bar-animate" style="width:${gecPct}%;background:${gecInterp.color};"></div>
         </div>
-        <div class="flex justify-between text-xs text-gray-500 mt-1">
+        <div class="flex justify-between text-xs text-gray-400 mt-1">
           <span>T 20</span><span>T 40</span><span>T 50</span><span>T 60</span><span>T 80</span>
         </div>
       </div>
@@ -775,6 +719,7 @@ function drawRadarChart(rec) {
   const n = labels.length;
   const step = (Math.PI * 2) / n;
 
+  // วาดตารางใยแมงมุมโทนสว่าง
   [0.25, 0.5, 0.75, 1].forEach(frac => {
     ctx.beginPath();
     for (let i = 0; i <= n; i++) {
@@ -783,7 +728,7 @@ function drawRadarChart(rec) {
       const y = cy + Math.sin(angle) * maxR * frac;
       i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
     }
-    ctx.strokeStyle = 'rgba(96, 165, 250, 0.2)';
+    ctx.strokeStyle = 'rgba(29, 78, 216, 0.1)';
     ctx.lineWidth = 1;
     ctx.stroke();
   });
@@ -793,7 +738,7 @@ function drawRadarChart(rec) {
     ctx.beginPath();
     ctx.moveTo(cx, cy);
     ctx.lineTo(cx + Math.cos(angle) * maxR, cy + Math.sin(angle) * maxR);
-    ctx.strokeStyle = 'rgba(96, 165, 250, 0.15)';
+    ctx.strokeStyle = 'rgba(29, 78, 216, 0.1)';
     ctx.stroke();
   }
 
@@ -807,9 +752,9 @@ function drawRadarChart(rec) {
     i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
   });
   ctx.closePath();
-  ctx.fillStyle = 'rgba(96, 165, 250, 0.25)';
+  ctx.fillStyle = 'rgba(29, 78, 216, 0.15)';
   ctx.fill();
-  ctx.strokeStyle = '#60a5fa';
+  ctx.strokeStyle = '#1d4ed8';
   ctx.lineWidth = 2;
   ctx.stroke();
 
@@ -820,19 +765,19 @@ function drawRadarChart(rec) {
 
     ctx.beginPath();
     ctx.arc(x, y, 4, 0, Math.PI * 2);
-    ctx.fillStyle = '#60a5fa';
+    ctx.fillStyle = '#1d4ed8';
     ctx.fill();
 
     const lx = cx + Math.cos(angle) * (maxR + 20);
     const ly = cy + Math.sin(angle) * (maxR + 20);
     ctx.font = '11px Sarabun, sans-serif';
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#475569';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(labels[i], lx, ly);
 
     ctx.font = 'bold 10px Sarabun, sans-serif';
-    ctx.fillStyle = '#60a5fa';
+    ctx.fillStyle = '#1d4ed8';
     ctx.fillText(`T${rec[`${keys[i]}_t`]}`, lx, ly + 13);
   });
 
@@ -845,7 +790,7 @@ function drawRadarChart(rec) {
     const y = cy + Math.sin(angle) * maxR * avgFrac;
     i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
   }
-  ctx.strokeStyle = 'rgba(148, 163, 184, 0.5)';
+  ctx.strokeStyle = 'rgba(100, 116, 139, 0.4)';
   ctx.lineWidth = 1;
   ctx.stroke();
   ctx.setLineDash([]);
@@ -854,7 +799,7 @@ function drawRadarChart(rec) {
 function renderHistory() {
   const container = document.getElementById('history-list');
   if (allRecords.length === 0) {
-    container.innerHTML = '<p class="text-gray-500 text-center py-4">ยังไม่มีประวัติการประเมิน</p>';
+    container.innerHTML = '<p class="text-gray-400 text-center py-4">ยังไม่มีประวัติการประเมิน</p>';
     return;
   }
 
@@ -865,12 +810,12 @@ function renderHistory() {
     const gradeLabel = rec.grade_level === '3' ? 'ป.3' : 'ป.6';
     const date = new Date(rec.created_at);
     const dateStr = date.toLocaleDateString('th-TH', { year: 'numeric', month: 'short', day: 'numeric' });
-    html += `<div class="flex items-center justify-between p-3 rounded-xl border border-primary/20 hover:bg-black/20 transition cursor-pointer" onclick="viewRecord(${allRecords.length - 1 - idx})">
+    html += `<div class="flex items-center justify-between p-3 rounded-xl border border-primary/20 bg-black/10 hover:bg-black/20 transition cursor-pointer" onclick="viewRecord(${allRecords.length - 1 - idx})">
       <div class="flex items-center gap-3">
         <span class="text-xl">${gIcon}</span>
         <div>
-          <div class="font-medium text-sm">${rec.school_name} (${gradeLabel})</div>
-          <div class="text-xs text-gray-500">${dateStr}</div>
+          <div class="font-medium text-sm text-gray-100">${rec.school_name} (${gradeLabel})</div>
+          <div class="text-xs text-gray-400">${dateStr}</div>
         </div>
       </div>
       <div class="text-right">
@@ -887,16 +832,13 @@ function renderHistory() {
 function renderSchoolReport() {
   const container = document.getElementById('school-report');
   if (allRecords.length === 0) {
-    container.innerHTML = '<p class="text-gray-500 text-center py-4">ยังไม่มีข้อมูลการประเมิน</p>';
+    container.innerHTML = '<p class="text-gray-400 text-center py-4">ยังไม่มีข้อมูลการประเมิน</p>';
     return;
   }
 
-  // Group by school
   const schoolGroups = {};
   allRecords.forEach(rec => {
-    if (!schoolGroups[rec.school_name]) {
-      schoolGroups[rec.school_name] = [];
-    }
+    if (!schoolGroups[rec.school_name]) schoolGroups[rec.school_name] = [];
     schoolGroups[rec.school_name].push(rec);
   });
 
@@ -908,27 +850,26 @@ function renderSchoolReport() {
     const g3 = records.filter(r => r.grade_level === '3').length;
     const g6 = records.filter(r => r.grade_level === '6').length;
     
-    // Calculate average GEC
     const avgGec = (records.reduce((sum, r) => sum + r.gec_t, 0) / records.length).toFixed(1);
     const avgInterp = interpretTScore(Math.round(avgGec));
 
     html += `<div class="p-4 rounded-xl border border-primary/20 bg-black/10 hover:bg-black/20 transition cursor-pointer" onclick="expandSchoolReport('${schoolName}')">
       <div class="flex items-start justify-between mb-3">
         <div class="flex-1">
-          <h3 class="heading-font font-semibold flex items-center gap-2 mb-1">
+          <h3 class="heading-font font-semibold text-gray-100 flex items-center gap-2 mb-1">
             <i data-lucide="building" style="width:18px;height:18px;color:var(--primary);"></i>
             ${schoolName}
           </h3>
           <div class="grid grid-cols-2 gap-2 text-xs text-gray-400">
-            <div>👥 รวมทั้งสิ้น: <span class="font-semibold text-gray-300">${records.length}</span> คน</div>
-            <div>👦👧 ชาย: <span class="font-semibold text-gray-300">${male}</span> | หญิง: <span class="font-semibold text-gray-300">${female}</span></div>
-            <div>📚 ป.3: <span class="font-semibold text-gray-300">${g3}</span> | ป.6: <span class="font-semibold text-gray-300">${g6}</span></div>
+            <div>👥 รวมทั้งสิ้น: <span class="font-semibold text-gray-100">${records.length}</span> คน</div>
+            <div>👦👧 ชาย: <span class="font-semibold text-gray-100">${male}</span> | หญิง: <span class="font-semibold text-gray-100">${female}</span></div>
+            <div>📚 ป.3: <span class="font-semibold text-gray-100">${g3}</span> | ป.6: <span class="font-semibold text-gray-100">${g6}</span></div>
           </div>
         </div>
         <div class="text-right">
-          <div class="text-sm font-semibold text-gray-500 mb-1">ค่าเฉลี่ย GEC</div>
+          <div class="text-sm font-semibold text-gray-400 mb-1">ค่าเฉลี่ย GEC</div>
           <div class="text-2xl font-bold heading-font" style="color:${avgInterp.color};">T ${Math.round(avgGec)}</div>
-          <span class="score-badge text-xs" style="background:${avgInterp.bg};color:${avgInterp.color};">${avgInterp.level}</span>
+          <span class="score-badge text-xs mt-1" style="background:${avgInterp.bg};color:${avgInterp.color};">${avgInterp.level}</span>
         </div>
       </div>
       <div id="details-${schoolName}" class="hidden mt-4 pt-4 border-t border-primary/20 space-y-2">
@@ -941,8 +882,8 @@ function renderSchoolReport() {
       const date = new Date(rec.created_at);
       const dateStr = date.toLocaleDateString('th-TH', { year: 'numeric', month: 'short', day: 'numeric' });
       
-      html += `<div class="flex items-center justify-between p-2 rounded-lg bg-black/20 text-xs">
-        <div class="flex items-center gap-2">
+      html += `<div class="flex items-center justify-between p-2 rounded-lg bg-white border border-primary/20 text-xs">
+        <div class="flex items-center gap-2 text-gray-100">
           <span>${i + 1}.</span>
           <span>${gIcon} ${gradeLabel}</span>
           <span class="text-gray-400">${dateStr}</span>
@@ -950,10 +891,7 @@ function renderSchoolReport() {
         <div class="font-semibold" style="color:${gecInterp.color};">T ${rec.gec_t}</div>
       </div>`;
     });
-
-    html += `</div>
-      </div>
-    </div>`;
+    html += `</div></div></div>`;
   });
 
   container.innerHTML = html;
@@ -963,18 +901,11 @@ function renderSchoolReport() {
 function filterSchoolReport() {
   const searchText = document.getElementById('school-filter-input').value.toLowerCase().trim();
   const schoolReportDiv = document.getElementById('school-report');
-  
-  if (allRecords.length === 0) {
-    schoolReportDiv.innerHTML = '<p class="text-gray-500 text-center py-4">ยังไม่มีข้อมูลการประเมิน</p>';
-    return;
-  }
+  if (allRecords.length === 0) return;
 
-  // Group by school
   const schoolGroups = {};
   allRecords.forEach(rec => {
-    if (!schoolGroups[rec.school_name]) {
-      schoolGroups[rec.school_name] = [];
-    }
+    if (!schoolGroups[rec.school_name]) schoolGroups[rec.school_name] = [];
     schoolGroups[rec.school_name].push(rec);
   });
 
@@ -982,10 +913,7 @@ function filterSchoolReport() {
   let hasResults = false;
   
   Object.keys(schoolGroups).sort().forEach(schoolName => {
-    // Filter by search text
-    if (searchText && !schoolName.toLowerCase().includes(searchText)) {
-      return;
-    }
+    if (searchText && !schoolName.toLowerCase().includes(searchText)) return;
     
     hasResults = true;
     const records = schoolGroups[schoolName];
@@ -993,28 +921,26 @@ function filterSchoolReport() {
     const female = records.filter(r => r.gender === 'female').length;
     const g3 = records.filter(r => r.grade_level === '3').length;
     const g6 = records.filter(r => r.grade_level === '6').length;
-    
-    // Calculate average GEC
     const avgGec = (records.reduce((sum, r) => sum + r.gec_t, 0) / records.length).toFixed(1);
     const avgInterp = interpretTScore(Math.round(avgGec));
 
     html += `<div class="p-4 rounded-xl border border-primary/20 bg-black/10 hover:bg-black/20 transition cursor-pointer" onclick="expandSchoolReport('${schoolName}')">
       <div class="flex items-start justify-between mb-3">
         <div class="flex-1">
-          <h3 class="heading-font font-semibold flex items-center gap-2 mb-1">
+          <h3 class="heading-font font-semibold text-gray-100 flex items-center gap-2 mb-1">
             <i data-lucide="building" style="width:18px;height:18px;color:var(--primary);"></i>
             ${schoolName}
           </h3>
           <div class="grid grid-cols-2 gap-2 text-xs text-gray-400">
-            <div>👥 รวมทั้งสิ้น: <span class="font-semibold text-gray-300">${records.length}</span> คน</div>
-            <div>👦👧 ชาย: <span class="font-semibold text-gray-300">${male}</span> | หญิง: <span class="font-semibold text-gray-300">${female}</span></div>
-            <div>📚 ป.3: <span class="font-semibold text-gray-300">${g3}</span> | ป.6: <span class="font-semibold text-gray-300">${g6}</span></div>
+            <div>👥 รวมทั้งสิ้น: <span class="font-semibold text-gray-100">${records.length}</span> คน</div>
+            <div>👦👧 ชาย: <span class="font-semibold text-gray-100">${male}</span> | หญิง: <span class="font-semibold text-gray-100">${female}</span></div>
+            <div>📚 ป.3: <span class="font-semibold text-gray-100">${g3}</span> | ป.6: <span class="font-semibold text-gray-100">${g6}</span></div>
           </div>
         </div>
         <div class="text-right">
-          <div class="text-sm font-semibold text-gray-500 mb-1">ค่าเฉลี่ย GEC</div>
+          <div class="text-sm font-semibold text-gray-400 mb-1">ค่าเฉลี่ย GEC</div>
           <div class="text-2xl font-bold heading-font" style="color:${avgInterp.color};">T ${Math.round(avgGec)}</div>
-          <span class="score-badge text-xs" style="background:${avgInterp.bg};color:${avgInterp.color};">${avgInterp.level}</span>
+          <span class="score-badge text-xs mt-1" style="background:${avgInterp.bg};color:${avgInterp.color};">${avgInterp.level}</span>
         </div>
       </div>
       <div id="details-${schoolName}" class="hidden mt-4 pt-4 border-t border-primary/20 space-y-2">
@@ -1027,8 +953,8 @@ function filterSchoolReport() {
       const date = new Date(rec.created_at);
       const dateStr = date.toLocaleDateString('th-TH', { year: 'numeric', month: 'short', day: 'numeric' });
       
-      html += `<div class="flex items-center justify-between p-2 rounded-lg bg-black/20 text-xs">
-        <div class="flex items-center gap-2">
+      html += `<div class="flex items-center justify-between p-2 rounded-lg bg-white border border-primary/20 text-xs">
+        <div class="flex items-center gap-2 text-gray-100">
           <span>${i + 1}.</span>
           <span>${gIcon} ${gradeLabel}</span>
           <span class="text-gray-400">${dateStr}</span>
@@ -1036,25 +962,17 @@ function filterSchoolReport() {
         <div class="font-semibold" style="color:${gecInterp.color};">T ${rec.gec_t}</div>
       </div>`;
     });
-
-    html += `</div>
-      </div>
-    </div>`;
+    html += `</div></div></div>`;
   });
 
-  if (!hasResults) {
-    html = '<p class="text-gray-500 text-center py-4">ไม่พบโรงเรียนที่ตรงกับการค้นหา</p>';
-  }
-
+  if (!hasResults) html = '<p class="text-gray-400 text-center py-4">ไม่พบโรงเรียนที่ตรงกับการค้นหา</p>';
   schoolReportDiv.innerHTML = html;
   lucide.createIcons();
 }
 
 function expandSchoolReport(schoolName) {
   const detailsEl = document.getElementById(`details-${schoolName}`);
-  if (detailsEl) {
-    detailsEl.classList.toggle('hidden');
-  }
+  if (detailsEl) detailsEl.classList.toggle('hidden');
 }
 
 function viewRecord(idx) {
@@ -1064,110 +982,76 @@ function viewRecord(idx) {
   }
 }
 
-// ===== SDK Init =====
-const defaultConfig = {
-  app_title: 'แบบประเมินทักษะทางสมอง EF',
-  subtitle_text: 'ระดับชั้นประถมศึกษาปีที่ 3 และ 6'
-};
+// ==========================================
+// ฟังก์ชันบันทึกข้อมูลเข้า Sheet
+// ==========================================
+async function submitAssessment() {
+  document.getElementById('btn-submit').disabled = true;
+  document.getElementById('submit-loading').classList.remove('hidden');
+  
+  const scores = computeScores();
+  const record = {
+    school_name: document.getElementById('school-input').value.trim(),
+    gender: selectedGender,
+    grade_level: selectedGrade,
+    created_at: new Date().toISOString()
+  };
 
-function applyConfig(config) {
-  const title = config.app_title || defaultConfig.app_title;
-  const sub = config.subtitle_text || defaultConfig.subtitle_text;
-  const mainT = document.getElementById('main-title');
-  const subT = document.getElementById('sub-title');
-  const resT = document.getElementById('result-title');
-  const resSub = document.getElementById('result-subtitle');
-  if (mainT) mainT.textContent = title;
-  if (subT) subT.textContent = sub;
-  if (resT) resT.textContent = 'ผลการประเมิน - ' + title;
-  if (resSub) resSub.textContent = sub;
+  for (let i = 1; i <= 45; i++) record[`q${i}`] = answers[`q${i}`] || 0;
+  
+  EF_SKILLS.forEach(skill => {
+    record[`${skill.key}_raw`] = scores.rawScores[skill.key];
+    record[`${skill.key}_t`] = scores.tScores[skill.key];
+  });
+
+  record.bri_raw = scores.briRaw; record.bri_t = scores.briT;
+  record.eri_raw = scores.eriRaw; record.eri_t = scores.eriT;
+  record.cri_raw = scores.criRaw; record.cri_t = scores.criT;
+  record.gec_raw = scores.gecRaw; record.gec_t = scores.gecT;
+
+  try {
+    const response = await fetch(SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(record)
+    });
+    
+    const result = await response.json();
+    document.getElementById('submit-loading').classList.add('hidden');
+
+    if (result.isOk) {
+      allRecords.push(record); 
+      showResults(); 
+    } else {
+      alert("เกิดข้อผิดพลาดจากเซิร์ฟเวอร์: " + result.error);
+      document.getElementById('btn-submit').disabled = false;
+    }
+  } catch (error) {
+    document.getElementById('submit-loading').classList.add('hidden');
+    document.getElementById('btn-submit').disabled = false;
+    alert("ไม่สามารถบันทึกข้อมูลได้ กรุณาลองอีกครั้ง (" + error.message + ")");
+  }
 }
 
-    // ==========================================
-    // จุดที่ 4: ฟังก์ชันส่งข้อมูลเข้า Google Sheets (ฉบับสมบูรณ์)
-    // ==========================================
-    async function submitAssessment() {
-      document.getElementById('btn-submit').disabled = true;
-      document.getElementById('submit-loading').classList.remove('hidden');
-      
-      const scores = computeScores();
-      const record = {
-        school_name: document.getElementById('school-input').value.trim(),
-        gender: selectedGender,
-        grade_level: selectedGrade,
-        created_at: new Date().toISOString()
-      };
-
-      // 1. เก็บคำตอบรายข้อ 45 ข้อ
-      for (let i = 1; i <= 45; i++) {
-        record[`q${i}`] = answers[`q${i}`] || 0;
-      }
-
-      // 2. เก็บผลคะแนนดิบและ T-Score รายทักษะ 9 ด้าน
-      EF_SKILLS.forEach(skill => {
-        record[`${skill.key}_raw`] = scores.rawScores[skill.key];
-        record[`${skill.key}_t`] = scores.tScores[skill.key];
+async function fetchHistoryFromSheet() {
+  try {
+    const response = await fetch(SCRIPT_URL);
+    const data = await response.json();
+    if (data && Array.isArray(data)) {
+      allRecords = data;
+      allRecords.forEach(r => {
+        if (r.created_at) r.created_at = new Date(r.created_at).toISOString();
       });
-
-      // 3. เก็บผลคะแนนองค์ประกอบและภาพรวม (สำคัญมากสำหรับการทำกราฟ)
-      record.bri_raw = scores.briRaw; record.bri_t = scores.briT;
-      record.eri_raw = scores.eriRaw; record.eri_t = scores.eriT;
-      record.cri_raw = scores.criRaw; record.cri_t = scores.criT;
-      record.gec_raw = scores.gecRaw; record.gec_t = scores.gecT;
-
-      try {
-        const response = await fetch(SCRIPT_URL, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(record)
-        });
-        
-        const result = await response.json();
-        document.getElementById('submit-loading').classList.add('hidden');
-
-        if (result.isOk) {
-          allRecords.push(record); // อัปเดตข้อมูลลงหน้าเว็บทันที
-          showResults(); // เปลี่ยนหน้าไปแสดงผลกราฟ
-        } else {
-          alert("เกิดข้อผิดพลาดจากเซิร์ฟเวอร์: " + result.error);
-          document.getElementById('btn-submit').disabled = false;
-        }
-      } catch (error) {
-        document.getElementById('submit-loading').classList.add('hidden');
-        document.getElementById('btn-submit').disabled = false;
-        alert("ไม่สามารถบันทึกข้อมูลได้ กรุณาลองอีกครั้ง (" + error.message + ")");
-      }
     }
+  } catch (err) {
+    console.error("ดึงข้อมูลประวัติไม่สำเร็จ:", err);
+  }
+}
 
-    // ฟังก์ชันดึงประวัติข้อมูลจาก Sheets เมื่อเปิดเว็บ
-    async function fetchHistoryFromSheet() {
-      try {
-        const response = await fetch(SCRIPT_URL);
-        const data = await response.json();
-        if (data && Array.isArray(data)) {
-          allRecords = data;
-          allRecords.forEach(r => {
-            if (r.created_at) r.created_at = new Date(r.created_at).toISOString();
-          });
-        }
-      } catch (err) {
-        console.error("ดึงข้อมูลประวัติไม่สำเร็จ:", err);
-      }
-    }
-
-    // ==========================================
-    // คำสั่งเริ่มต้นการทำงาน (ห้ามลบ)
-    // ==========================================
-    document.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
-      fetchHistoryFromSheet(); // สั่งให้ดึงข้อมูลประวัติทันทีที่เปิดเว็บ
-    });
-    // ==========================================
-    // คำสั่งเริ่มต้นการทำงาน (ห้ามลบ)
-    // ==========================================
-    document.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
-    });
-  </script>
+document.addEventListener('DOMContentLoaded', () => {
+  lucide.createIcons();
+  fetchHistoryFromSheet();
+});
+</script>
 </body>
 </html>
