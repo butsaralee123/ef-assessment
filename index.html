@@ -1,224 +1,339 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #5a5a5a; -webkit-text-stroke: #5a5a5a}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #8f000f; -webkit-text-stroke: #8f000f}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #112d9e; -webkit-text-stroke: #112d9e}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #14606b; -webkit-text-stroke: #14606b}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Ayuthaya; color: #232526; -webkit-text-stroke: #232526}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #232526; -webkit-text-stroke: #232526}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #4d009d; -webkit-text-stroke: #4d009d}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #0b2981; -webkit-text-stroke: #0b2981}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #232526; -webkit-text-stroke: #232526; min-height: 15.0px}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #3c3f43; -webkit-text-stroke: #3c3f43}
-    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #232526; -webkit-text-stroke: #000000}
-    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #232526; -webkit-text-stroke: #3c3f43}
-    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Ayuthaya; color: #3c3f43; -webkit-text-stroke: #3c3f43}
-    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Menlo; color: #112d9e; -webkit-text-stroke: #112d9e; background-color: #f4f5f7}
-    span.s1 {font-kerning: none; background-color: #f4f5f7}
-    span.s2 {font-kerning: none; color: #f6000b; background-color: #f4f5f7; -webkit-text-stroke: 0px #f6000b}
-    span.s3 {font-kerning: none; color: #1f1f1f; background-color: #f4f5f7; -webkit-text-stroke: 0px #1f1f1f}
-    span.s4 {font-kerning: none; color: #112d9e; background-color: #f4f5f7; -webkit-text-stroke: 0px #112d9e}
-    span.s5 {font-kerning: none; color: #232526; background-color: #f4f5f7; -webkit-text-stroke: 0px #232526}
-    span.s6 {font-kerning: none; color: #14606b; background-color: #f4f5f7; -webkit-text-stroke: 0px #14606b}
-    span.s7 {font-kerning: none; color: #8f000f; background-color: #f4f5f7; -webkit-text-stroke: 0px #8f000f}
-    span.s8 {font: 13.0px Menlo; font-kerning: none; background-color: #f4f5f7}
-    span.s9 {font: 13.0px Menlo; font-kerning: none; color: #1f1f1f; background-color: #f4f5f7; -webkit-text-stroke: 0px #1f1f1f}
-    span.s10 {font: 13.0px Menlo; font-kerning: none; color: #112d9e; background-color: #f4f5f7; -webkit-text-stroke: 0px #112d9e}
-    span.s11 {font-kerning: none; color: #4d009d; background-color: #f4f5f7; -webkit-text-stroke: 0px #4d009d}
-    span.s12 {font-kerning: none; color: #156536; background-color: #f4f5f7; -webkit-text-stroke: 0px #156536}
-    span.s13 {font-kerning: none; color: #0b2981; background-color: #f4f5f7; -webkit-text-stroke: 0px #0b2981}
-    span.s14 {font-kerning: none}
-    span.s15 {font: 13.0px Ayuthaya; font-kerning: none; background-color: #f4f5f7}
-    span.s16 {font-kerning: none; color: #a90060; background-color: #f4f5f7; -webkit-text-stroke: 0px #a90060}
-    span.s17 {font-kerning: none; background-color: #f4f5f7; -webkit-text-stroke: 0px #232526}
-    span.s18 {font-kerning: none; color: #3c3f43; background-color: #f4f5f7; -webkit-text-stroke: 0px #3c3f43}
-    span.s19 {font: 13.0px Ayuthaya; font-kerning: none; color: #3c3f43; background-color: #f4f5f7; -webkit-text-stroke: 0px #3c3f43}
-    span.s20 {font-kerning: none; background-color: #f4f5f7; -webkit-text-stroke: 0px #000000}
-    span.s21 {font-kerning: none; color: #3c3f43; background-color: #f4f5f7}
-    span.s22 {font: 13.0px Ayuthaya; font-kerning: none; color: #3c3f43; background-color: #f4f5f7}
-    span.s23 {font-kerning: none; color: #232526; background-color: #f4f5f7; -webkit-text-stroke: 0px #000000}
-    span.s24 {font: 13.0px Menlo; font-kerning: none; color: #232526; background-color: #f4f5f7; -webkit-text-stroke: 0px #232526}
-    span.s25 {font: 13.0px Ayuthaya; font-kerning: none; color: #8f000f; background-color: #f4f5f7; -webkit-text-stroke: 0px #8f000f}
-    span.s26 {font-kerning: none; color: #1f1f1f; -webkit-text-stroke: 0px #1f1f1f}
+<!doctype html>
+
+<html lang="th" class="h-full">
+
+ <head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>แบบประเมินทักษะทางสมอง EF</title>
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&amp;family=Prompt:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <style>
+
+  * { font-family: 'Sarabun', sans-serif; }
+
+  .heading-font { font-family: 'Prompt', sans-serif; }
+
+  html, body { height: 100%; margin: 0; }
+
+  .radio-option { transition: all 0.2s ease; }
+
+  .radio-option:hover { transform: translateY(-1px); }
+
+  .radio-option.selected { border-color: var(--primary); background: rgba(var(--primary-rgb), 0.15); }
+
+  .gender-option { transition: all 0.2s ease; cursor: pointer; }
+
+  .gender-option:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+
+  .gender-option.selected-male { border-color: #60a5fa; background: rgba(96, 165, 250, 0.1); }
+
+  .gender-option.selected-female { border-color: #f472b6; background: rgba(244, 114, 182, 0.1); }
+
+  :root {
+
+    --bg: #0f172a;
+
+    --surface: #1e293b;
+
+    --surface-alt: #334155;
+
+    --text: #f1f5f9;
+
+    --text-secondary: #cbd5e1;
+
+    --primary: #60a5fa;
+
+    --primary-rgb: 96, 165, 250;
+
+    --primary-light: rgba(96, 165, 250, 0.1);
+
+    --secondary: #34d399;
+
+    --accent: #fbbf24;
+
+    --danger: #f87171;
+
+  }
+
+  .progress-bar { transition: width 0.5s ease; }
+
+  .fade-in { animation: fadeIn 0.4s ease; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .skill-card { transition: all 0.3s ease; }
+
+  .skill-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+
+  .bar-animate { animation: growBar 0.8s ease forwards; }
+
+  @keyframes growBar { from { width: 0; } }
+
+  .score-badge { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+
+  .icon-btn { transition: all 0.2s ease; }
+
+  .icon-btn:hover { transform: scale(1.05); }
+
+  ::-webkit-scrollbar { width: 8px; }
+
+  ::-webkit-scrollbar-track { background: var(--bg); }
+
+  ::-webkit-scrollbar-thumb { background: var(--surface-alt); border-radius: 4px; }
+
+  ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+  body { box-sizing: border-box; }
+
   </style>
-</head>
-<body>
-<p class="p1"><span class="s1">&lt;!doctype</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s4">html</span><span class="s5"> </span><span class="s6">lang</span><span class="s3">=</span><span class="s1">"th"</span><span class="s5"> </span><span class="s6">class</span><span class="s3">=</span><span class="s1">"h-full"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space"> </span></span><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s7">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s6">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s5"> </span><span class="s6">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s8"><span class="Apple-converted-space">  </span></span><span class="s9">&lt;</span><span class="s10">title</span><span class="s9">&gt;</span><span class="s1">แบบประเมินทักษะทางสมอง</span><span class="s8"> EF</span><span class="s9">&lt;/</span><span class="s10">title</span><span class="s9">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s6">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com/3.4.17"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s6">src</span><span class="s3">=</span><span class="s1">"https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">link</span><span class="s5"> </span><span class="s6">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&amp;amp;family=Prompt:wght@400;500;600;700&amp;amp;display=swap"</span><span class="s5"> </span><span class="s6">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s11">*</span><span class="s5"> { </span><span class="s6">font-family:</span><span class="s5"> </span><span class="s1">'Sarabun'</span><span class="s5">, </span><span class="s1">sans-serif</span><span class="s5">; }</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s11">.heading-font</span><span class="s5"> { </span><span class="s6">font-family:</span><span class="s5"> </span><span class="s1">'Prompt'</span><span class="s5">, </span><span class="s1">sans-serif</span><span class="s5">; }</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s11">html</span><span class="s1">, </span><span class="s11">body</span><span class="s1"> { </span><span class="s6">height:</span><span class="s1"> </span><span class="s12">100%</span><span class="s1">; </span><span class="s6">margin:</span><span class="s1"> </span><span class="s12">0</span><span class="s1">; }</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">.radio-option</span><span class="s5"> { </span><span class="s6">transition:</span><span class="s5"> </span><span class="s7">all</span><span class="s5"> </span><span class="s12">0.2s</span><span class="s5"> </span><span class="s7">ease</span><span class="s5">; }</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">.radio-option:hover</span><span class="s5"> { </span><span class="s6">transform:</span><span class="s5"> </span><span class="s7">translateY(</span><span class="s12">-1px</span><span class="s7">)</span><span class="s5">; }</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s11">.radio-option.selected</span><span class="s5"> { </span><span class="s6">border-color:</span><span class="s5"> </span><span class="s1">var(--primary)</span><span class="s5">; </span><span class="s6">background:</span><span class="s5"> </span><span class="s1">rgba(var(--primary-rgb)</span><span class="s5">, </span><span class="s12">0.15</span><span class="s1">)</span><span class="s5">; }</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s11">.gender-option</span><span class="s5"> { </span><span class="s1">transition:</span><span class="s5"> </span><span class="s7">all</span><span class="s5"> </span><span class="s12">0.2s</span><span class="s5"> </span><span class="s7">ease</span><span class="s5">; </span><span class="s1">cursor:</span><span class="s5"> </span><span class="s7">pointer</span><span class="s5">; }</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s11">.gender-option:hover</span><span class="s5"> { </span><span class="s1">transform:</span><span class="s5"> </span><span class="s7">translateY(</span><span class="s12">-2px</span><span class="s7">)</span><span class="s5">; </span><span class="s1">box-shadow:</span><span class="s5"> </span><span class="s12">0</span><span class="s5"> </span><span class="s12">4px</span><span class="s5"> </span><span class="s12">12px</span><span class="s5"> </span><span class="s7">rgba(</span><span class="s12">0</span><span class="s5">,</span><span class="s12">0</span><span class="s5">,</span><span class="s12">0</span><span class="s5">,</span><span class="s12">0.3</span><span class="s7">)</span><span class="s5">; }</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">.gender-option.selected-male</span><span class="s5"> { </span><span class="s6">border-color:</span><span class="s5"> </span><span class="s13">#60a5fa</span><span class="s5">; </span><span class="s6">background:</span><span class="s5"> </span><span class="s7">rgba(</span><span class="s12">96</span><span class="s5">, </span><span class="s12">165</span><span class="s5">, </span><span class="s12">250</span><span class="s5">, </span><span class="s12">0.1</span><span class="s7">)</span><span class="s5">; }</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">.gender-option.selected-female</span><span class="s5"> { </span><span class="s6">border-color:</span><span class="s5"> </span><span class="s13">#f472b6</span><span class="s5">; </span><span class="s6">background:</span><span class="s5"> </span><span class="s7">rgba(</span><span class="s12">244</span><span class="s5">, </span><span class="s12">114</span><span class="s5">, </span><span class="s12">182</span><span class="s5">, </span><span class="s12">0.1</span><span class="s7">)</span><span class="s5">; }</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">:root</span><span class="s5"> {</span></p>
-<p class="p8"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s6">--bg:</span><span class="s5"> </span><span class="s1">#0f172a</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">--surface:</span><span class="s5"> </span><span class="s13">#1e293b</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">--surface-alt:</span><span class="s5"> </span><span class="s13">#334155</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">--text:</span><span class="s5"> </span><span class="s13">#f1f5f9</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">--text-secondary:</span><span class="s5"> </span><span class="s13">#cbd5e1</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">--primary:</span><span class="s5"> </span><span class="s13">#60a5fa</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">--primary-rgb:</span><span class="s5"> </span><span class="s12">96</span><span class="s5">, </span><span class="s12">165</span><span class="s5">, </span><span class="s12">250</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">--primary-light:</span><span class="s5"> </span><span class="s7">rgba(</span><span class="s12">96</span><span class="s5">, </span><span class="s12">165</span><span class="s5">, </span><span class="s12">250</span><span class="s5">, </span><span class="s12">0.1</span><span class="s7">)</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">--secondary:</span><span class="s5"> </span><span class="s13">#34d399</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">--accent:</span><span class="s5"> </span><span class="s13">#fbbf24</span><span class="s5">;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">--danger:</span><span class="s5"> </span><span class="s13">#f87171</span><span class="s5">;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">.progress-bar</span><span class="s5"> { </span><span class="s6">transition:</span><span class="s5"> </span><span class="s7">width</span><span class="s5"> </span><span class="s12">0.5s</span><span class="s5"> </span><span class="s7">ease</span><span class="s5">; }</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s11">.fade-in</span><span class="s1"> { </span><span class="s6">animation:</span><span class="s1"> </span><span class="s7">fadeIn</span><span class="s1"> </span><span class="s12">0.4s</span><span class="s1"> </span><span class="s7">ease</span><span class="s1">; }</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s4">@keyframes</span><span class="s5"> </span><span class="s7">fadeIn</span><span class="s5"> { </span><span class="s7">from</span><span class="s5"> { </span><span class="s1">opacity:</span><span class="s5"> </span><span class="s12">0</span><span class="s5">; </span><span class="s1">transform:</span><span class="s5"> </span><span class="s7">translateY(</span><span class="s12">10px</span><span class="s7">)</span><span class="s5">; } </span><span class="s7">to</span><span class="s5"> { </span><span class="s1">opacity:</span><span class="s5"> </span><span class="s12">1</span><span class="s5">; </span><span class="s1">transform:</span><span class="s5"> </span><span class="s7">translateY(</span><span class="s12">0</span><span class="s7">)</span><span class="s5">; } }</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s11">.skill-card</span><span class="s1"> { </span><span class="s6">transition:</span><span class="s1"> </span><span class="s7">all</span><span class="s1"> </span><span class="s12">0.3s</span><span class="s1"> </span><span class="s7">ease</span><span class="s1">; }</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s11">.skill-card:hover</span><span class="s5"> { </span><span class="s1">transform:</span><span class="s5"> </span><span class="s7">translateY(</span><span class="s12">-2px</span><span class="s7">)</span><span class="s5">; </span><span class="s1">box-shadow:</span><span class="s5"> </span><span class="s12">0</span><span class="s5"> </span><span class="s12">8px</span><span class="s5"> </span><span class="s12">25px</span><span class="s5"> </span><span class="s7">rgba(</span><span class="s12">0</span><span class="s5">,</span><span class="s12">0</span><span class="s5">,</span><span class="s12">0</span><span class="s5">,</span><span class="s12">0.3</span><span class="s7">)</span><span class="s5">; }</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s11">.bar-animate</span><span class="s5"> { </span><span class="s6">animation:</span><span class="s5"> </span><span class="s1">growBar</span><span class="s5"> </span><span class="s12">0.8s</span><span class="s5"> </span><span class="s1">ease</span><span class="s5"> </span><span class="s1">forwards</span><span class="s5">; }</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s4">@keyframes</span><span class="s1"> </span><span class="s7">growBar</span><span class="s1"> { </span><span class="s7">from</span><span class="s1"> { </span><span class="s6">width:</span><span class="s1"> </span><span class="s12">0</span><span class="s1">; } }</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s11">.score-badge</span><span class="s5"> { </span><span class="s1">display:</span><span class="s5"> </span><span class="s7">inline-flex</span><span class="s5">; </span><span class="s1">align-items:</span><span class="s5"> </span><span class="s7">center</span><span class="s5">; </span><span class="s1">padding:</span><span class="s5"> </span><span class="s12">4px</span><span class="s5"> </span><span class="s12">12px</span><span class="s5">; </span><span class="s1">border-radius:</span><span class="s5"> </span><span class="s12">9999px</span><span class="s5">; </span><span class="s1">font-size:</span><span class="s5"> </span><span class="s12">0.75rem</span><span class="s5">; </span><span class="s1">font-weight:</span><span class="s5"> </span><span class="s12">600</span><span class="s5">; }</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s11">.icon-btn</span><span class="s1"> { </span><span class="s6">transition:</span><span class="s1"> </span><span class="s7">all</span><span class="s1"> </span><span class="s12">0.2s</span><span class="s1"> </span><span class="s7">ease</span><span class="s1">; }</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">.icon-btn:hover</span><span class="s5"> { </span><span class="s6">transform:</span><span class="s5"> </span><span class="s7">scale(</span><span class="s12">1.05</span><span class="s7">)</span><span class="s5">; }</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">::-webkit-scrollbar</span><span class="s5"> { </span><span class="s6">width:</span><span class="s5"> </span><span class="s12">8px</span><span class="s5">; }</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">::-webkit-scrollbar-track</span><span class="s5"> { </span><span class="s6">background:</span><span class="s5"> </span><span class="s7">var(--bg)</span><span class="s5">; }</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">::-webkit-scrollbar-thumb</span><span class="s5"> { </span><span class="s6">background:</span><span class="s5"> </span><span class="s7">var(--surface-alt)</span><span class="s5">; </span><span class="s6">border-radius:</span><span class="s5"> </span><span class="s12">4px</span><span class="s5">; }</span></p>
-<p class="p7"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">::-webkit-scrollbar-thumb:hover</span><span class="s5"> { </span><span class="s6">background:</span><span class="s5"> </span><span class="s7">var(--primary)</span><span class="s5">; }</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s11">body</span><span class="s5"> { </span><span class="s1">box-sizing:</span><span class="s5"> </span><span class="s7">border-box</span><span class="s5">; }</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space"> </span></span><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space"> </span></span><span class="s3">&lt;</span><span class="s4">body</span><span class="s5"> </span><span class="s6">class</span><span class="s3">=</span><span class="s1">"h-full"</span><span class="s5"> </span><span class="s6">style</span><span class="s3">=</span><span class="s1">"background: var(--bg); color: var(--text);"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s6">id</span><span class="s3">=</span><span class="s1">"app"</span><span class="s5"> </span><span class="s6">class</span><span class="s3">=</span><span class="s1">"h-full overflow-auto w-full"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">   </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s6">id</span><span class="s3">=</span><span class="s1">"page-form"</span><span class="s5"> </span><span class="s6">class</span><span class="s3">=</span><span class="s1">"w-full"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s6">class</span><span class="s3">=</span><span class="s1">"max-w-3xl mx-auto px-4 py-8"</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">   </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s3">&lt;/</span><span class="s1">div</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p3"><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p10"><span class="s1">// ==========================================</span></p>
-<p class="p10"><span class="s1">// </span><span class="s15">การตั้งค่า</span><span class="s1"> Google Sheets API (Web App URL)</span></p>
-<p class="p10"><span class="s1">// ==========================================</span></p>
-<p class="p2"><span class="s4">const</span><span class="s5"> </span><span class="s16">SCRIPT_URL</span><span class="s5"> = </span><span class="s1">"https://script.google.com/macros/s/AKfycby6_taCxMcMxrBIs1mLZ4xfnJOcERqoQwInDU7kGFuFrTHNBynqV_v5gKEwzbLTtTRo2A/exec"</span><span class="s5">;<span class="Apple-converted-space"> </span></span></p>
-<p class="p10"><span class="s1">// ==========================================</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p10"><span class="s1">// ===== EF Assessment Data =====</span></p>
-<p class="p10"><span class="s4">const</span><span class="s5"> </span><span class="s16">EF_SKILLS</span><span class="s5"> = [ </span><span class="s1">/* ... </span><span class="s15">ข้อมูลทักษะ</span><span class="s1"> 9 </span><span class="s15">ด้านเหมือนเดิม</span><span class="s1"> ... */</span><span class="s5"> ];</span></p>
-<p class="p10"><span class="s1">// (</span><span class="s15">คัดลอก</span><span class="s1"> EF_SKILLS, SCORE_OPTIONS, NORMS_, COMPONENT_NORMS_, GEC_NORMS_ </span><span class="s15">เดิมมาวางทั้งหมด</span><span class="s1">)</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p10"><span class="s1">// </span><span class="s15">ฟังก์ชันดึงค่าแปลผล</span><span class="s1"> (</span><span class="s15">คัดลอก</span><span class="s1"> lookupTScore </span><span class="s15">และ</span><span class="s1"> interpretTScore </span><span class="s15">เดิมมาวาง</span><span class="s1">)</span></p>
-<p class="p11"><span class="s4">function</span><span class="s17"> </span><span class="s1">lookupTScore</span><span class="s17">(</span><span class="s1">normTable</span><span class="s17">, </span><span class="s1">rawScore</span><span class="s17">) { </span><span class="s18">/* ... </span><span class="s19">โค้ดเดิม</span><span class="s18"> ... */</span><span class="s17"> }</span></p>
-<p class="p12"><span class="s4">function</span><span class="s17"> </span><span class="s20">interpretTScore</span><span class="s17">(</span><span class="s20">t</span><span class="s17">) { </span><span class="s21">/* ... </span><span class="s22">โค้ดเดิม</span><span class="s21"> ... */</span><span class="s17"> }</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p10"><span class="s1">// ===== State =====</span></p>
-<p class="p11"><span class="s4">let</span><span class="s17"> </span><span class="s1">selectedGender</span><span class="s17"> = </span><span class="s7">''</span><span class="s17">;</span></p>
-<p class="p11"><span class="s4">let</span><span class="s17"> </span><span class="s1">selectedGrade</span><span class="s17"> = </span><span class="s7">''</span><span class="s17">;</span></p>
-<p class="p11"><span class="s4">let</span><span class="s17"> </span><span class="s1">currentSkillIdx</span><span class="s17"> = </span><span class="s6">0</span><span class="s17">;</span></p>
-<p class="p6"><span class="s4">let</span><span class="s1"> </span><span class="s20">answers</span><span class="s1"> = {};</span></p>
-<p class="p10"><span class="s4">let</span><span class="s5"> </span><span class="s23">allRecords</span><span class="s5"> = []; </span><span class="s1">// </span><span class="s15">ข้อมูลประวัติที่จะดึงมาจาก</span><span class="s1"> Google Sheet</span></p>
-<p class="p11"><span class="s4">let</span><span class="s17"> </span><span class="s1">filteredRecords</span><span class="s17"> = [];</span></p>
-<p class="p11"><span class="s4">let</span><span class="s17"> </span><span class="s1">recordIndex</span><span class="s17"> = </span><span class="s6">0</span><span class="s17">;</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p10"><span class="s1">// ===== UI Functions (</span><span class="s15">คัดลอกโค้ด</span><span class="s1"> UI </span><span class="s15">ของเดิมมาวาง</span><span class="s1">) =====</span></p>
-<p class="p10"><span class="s1">// selectGender, startQuestions, renderSkillQuestions, selectAnswer,<span class="Apple-converted-space"> </span></span></p>
-<p class="p10"><span class="s1">// updateProgress, getSkillQuestionRange, isSkillComplete, prevSkill, nextSkill, computeScores</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p13"><span class="s8">// ===== </span><span class="s1">ฟังก์ชันบันทึกข้อมูลที่เปลี่ยนไปใช้</span><span class="s8"> Google Sheets =====</span></p>
-<p class="p11"><span class="s4">async</span><span class="s17"> </span><span class="s4">function</span><span class="s17"> </span><span class="s1">submitAssessment</span><span class="s17">() {</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">  </span></span><span class="s1">document</span><span class="s17">.</span><span class="s1">getElementById</span><span class="s17">(</span><span class="s7">'btn-submit'</span><span class="s17">).</span><span class="s1">disabled</span><span class="s17"> = </span><span class="s4">true</span><span class="s17">;</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">  </span></span><span class="s1">document</span><span class="s17">.</span><span class="s1">getElementById</span><span class="s17">(</span><span class="s7">'submit-loading'</span><span class="s17">).</span><span class="s1">classList</span><span class="s17">.</span><span class="s1">remove</span><span class="s17">(</span><span class="s7">'hidden'</span><span class="s17">);</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">  </span></span><span class="s1">document</span><span class="s17">.</span><span class="s1">getElementById</span><span class="s17">(</span><span class="s7">'submit-error'</span><span class="s17">).</span><span class="s1">classList</span><span class="s17">.</span><span class="s1">add</span><span class="s17">(</span><span class="s7">'hidden'</span><span class="s17">);</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">  </span></span><span class="s4">const</span><span class="s17"> </span><span class="s1">scores</span><span class="s17"> = </span><span class="s1">computeScores</span><span class="s17">(); </span><span class="s18">// </span><span class="s19">จากฟังก์ชันเดิม</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s4">const</span><span class="s1"> </span><span class="s20">record</span><span class="s1"> = {</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s1">school_name</span><span class="s17">: </span><span class="s1">document</span><span class="s17">.</span><span class="s1">getElementById</span><span class="s17">(</span><span class="s7">'school-input'</span><span class="s17">).</span><span class="s1">value</span><span class="s17">.</span><span class="s1">trim</span><span class="s17">(),</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s1">gender</span><span class="s17">: </span><span class="s1">selectedGender</span><span class="s17">,</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s1">grade_level</span><span class="s17">: </span><span class="s1">selectedGrade</span><span class="s17">,</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s1">created_at</span><span class="s17">: </span><span class="s4">new</span><span class="s17"> </span><span class="s16">Date</span><span class="s17">().</span><span class="s1">toISOString</span><span class="s17">()</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span>};</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p13"><span class="s24"><span class="Apple-converted-space">  </span></span><span class="s8">// </span><span class="s1">รวมคะแนนรายข้อ</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s4">for</span><span class="s1"> (</span><span class="s4">let</span><span class="s1"> </span><span class="s20">i</span><span class="s1"> = </span><span class="s6">1</span><span class="s1">; </span><span class="s20">i</span><span class="s1"> &lt;= </span><span class="s6">45</span><span class="s1">; </span><span class="s20">i</span><span class="s1">++) {</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s20">record</span><span class="s1">[</span><span class="s7">`q</span><span class="s1">${</span><span class="s20">i</span><span class="s1">}</span><span class="s7">`</span><span class="s1">] = </span><span class="s20">answers</span><span class="s1">[</span><span class="s7">`q</span><span class="s1">${</span><span class="s20">i</span><span class="s1">}</span><span class="s7">`</span><span class="s1">] || </span><span class="s6">0</span><span class="s1">;</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p13"><span class="s24"><span class="Apple-converted-space">  </span></span><span class="s8">// </span><span class="s1">รวมคะแนนดิบและ</span><span class="s8"> T-Score</span></p>
-<p class="p10"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s1">/* ... </span><span class="s15">ใส่ลูป</span><span class="s1"> record[`${skill.key}_raw`] </span><span class="s15">เหมือนโค้ดเดิม</span><span class="s1"> ... */</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s4">try</span><span class="s1"> {</span></p>
-<p class="p10"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">// </span><span class="s15">ยิง</span><span class="s1"> API </span><span class="s15">ไปที่</span><span class="s1"> Google Apps Script</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s4">const</span><span class="s1"> </span><span class="s20">response</span><span class="s1"> = </span><span class="s4">await</span><span class="s1"> </span><span class="s20">fetch</span><span class="s1">(</span><span class="s16">SCRIPT_URL</span><span class="s1">, {</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s20">method</span><span class="s1">: </span><span class="s7">"POST"</span><span class="s1">,</span></p>
-<p class="p13"><span class="s24"><span class="Apple-converted-space">      </span></span><span class="s8">// </span><span class="s1">ใช้</span><span class="s8"> text/plain </span><span class="s1">เพื่อป้องกันปัญหาเรื่อง</span><span class="s8"> CORS preflight </span><span class="s1">ของเบราว์เซอร์</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">      </span></span><span class="s23">headers</span><span class="s5">: { </span><span class="s1">"Content-Type"</span><span class="s5">: </span><span class="s1">"text/plain;charset=utf-8"</span><span class="s5"> },</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">      </span></span><span class="s1">body</span><span class="s17">: </span><span class="s16">JSON</span><span class="s17">.</span><span class="s1">stringify</span><span class="s17">(</span><span class="s1">record</span><span class="s17">)</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s4">const</span><span class="s17"> </span><span class="s1">result</span><span class="s17"> = </span><span class="s4">await</span><span class="s17"> </span><span class="s1">response</span><span class="s17">.</span><span class="s1">json</span><span class="s17">();</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s1">document</span><span class="s17">.</span><span class="s1">getElementById</span><span class="s17">(</span><span class="s7">'btn-submit'</span><span class="s17">).</span><span class="s1">disabled</span><span class="s17"> = </span><span class="s4">false</span><span class="s17">;</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s1">document</span><span class="s17">.</span><span class="s1">getElementById</span><span class="s17">(</span><span class="s7">'submit-loading'</span><span class="s17">).</span><span class="s1">classList</span><span class="s17">.</span><span class="s1">add</span><span class="s17">(</span><span class="s7">'hidden'</span><span class="s17">);</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s4">if</span><span class="s1"> (</span><span class="s20">result</span><span class="s1">.</span><span class="s20">isOk</span><span class="s1">) {</span></p>
-<p class="p13"><span class="s24"><span class="Apple-converted-space">      </span></span><span class="s8">// </span><span class="s1">เมื่อบันทึกเสร็จ</span><span class="s8"> </span><span class="s1">ให้เพิ่มข้อมูลเข้าระบบเพื่อแสดงผลทันที</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">      </span></span><span class="s1">allRecords</span><span class="s17">.</span><span class="s1">push</span><span class="s17">(</span><span class="s1">record</span><span class="s17">);<span class="Apple-converted-space"> </span></span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">      </span></span><span class="s1">showResults</span><span class="s17">();</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span>} </span><span class="s4">else</span><span class="s1"> {</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span></span><span class="s4">throw</span><span class="s1"> </span><span class="s4">new</span><span class="s1"> </span><span class="s16">Error</span><span class="s1">(</span><span class="s20">result</span><span class="s1">.</span><span class="s20">error</span><span class="s1"> || </span><span class="s7">"Unknown error"</span><span class="s1">);</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span>} </span><span class="s4">catch</span><span class="s1"> (</span><span class="s20">error</span><span class="s1">) {</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s1">document</span><span class="s17">.</span><span class="s1">getElementById</span><span class="s17">(</span><span class="s7">'btn-submit'</span><span class="s17">).</span><span class="s1">disabled</span><span class="s17"> = </span><span class="s4">false</span><span class="s17">;</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s1">document</span><span class="s17">.</span><span class="s1">getElementById</span><span class="s17">(</span><span class="s7">'submit-loading'</span><span class="s17">).</span><span class="s1">classList</span><span class="s17">.</span><span class="s1">add</span><span class="s17">(</span><span class="s7">'hidden'</span><span class="s17">);</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s1">document</span><span class="s17">.</span><span class="s1">getElementById</span><span class="s17">(</span><span class="s7">'submit-error'</span><span class="s17">).</span><span class="s1">textContent</span><span class="s17"> = </span><span class="s7">'</span><span class="s25">เกิดข้อผิดพลาดในการบันทึก</span><span class="s7">: '</span><span class="s17"> + </span><span class="s1">error</span><span class="s17">.</span><span class="s1">message</span><span class="s17">;</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s1">document</span><span class="s17">.</span><span class="s1">getElementById</span><span class="s17">(</span><span class="s7">'submit-error'</span><span class="s17">).</span><span class="s1">classList</span><span class="s17">.</span><span class="s1">remove</span><span class="s17">(</span><span class="s7">'hidden'</span><span class="s17">);</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p6"><span class="s1">}</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p13"><span class="s8">// ===== </span><span class="s1">ฟังก์ชันดึงประวัติข้อมูลตอนเปิดเว็บ</span><span class="s8"> =====</span></p>
-<p class="p11"><span class="s4">async</span><span class="s17"> </span><span class="s4">function</span><span class="s17"> </span><span class="s1">fetchHistoryFromSheet</span><span class="s17">() {</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span></span><span class="s4">try</span><span class="s1"> {</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s4">const</span><span class="s17"> </span><span class="s1">response</span><span class="s17"> = </span><span class="s4">await</span><span class="s17"> </span><span class="s1">fetch</span><span class="s17">(</span><span class="s16">SCRIPT_URL</span><span class="s17">);</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">    </span></span><span class="s4">const</span><span class="s17"> </span><span class="s1">data</span><span class="s17"> = </span><span class="s4">await</span><span class="s17"> </span><span class="s1">response</span><span class="s17">.</span><span class="s1">json</span><span class="s17">();</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s4">if</span><span class="s1"> (</span><span class="s20">data</span><span class="s1"> &amp;&amp; </span><span class="s16">Array</span><span class="s1">.</span><span class="s20">isArray</span><span class="s1">(</span><span class="s20">data</span><span class="s1">)) {</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">      </span></span><span class="s1">allRecords</span><span class="s17"> = </span><span class="s1">data</span><span class="s17">;</span></p>
-<p class="p13"><span class="s24"><span class="Apple-converted-space">      </span></span><span class="s8">// </span><span class="s1">แปลงวันที่กลับมาให้ถูกต้อง</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">      </span></span><span class="s1">allRecords</span><span class="s17">.</span><span class="s1">forEach</span><span class="s17">(</span><span class="s1">r</span><span class="s17"> =&gt; {</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">        </span></span><span class="s4">if</span><span class="s17"> (</span><span class="s1">r</span><span class="s17">.</span><span class="s1">created_at</span><span class="s17">) </span><span class="s1">r</span><span class="s17">.</span><span class="s1">created_at</span><span class="s17"> = </span><span class="s4">new</span><span class="s17"> </span><span class="s16">Date</span><span class="s17">(</span><span class="s1">r</span><span class="s17">.</span><span class="s1">created_at</span><span class="s17">).</span><span class="s1">toISOString</span><span class="s17">();</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
-<p class="p13"><span class="s24"><span class="Apple-converted-space">      </span></span><span class="s8">// </span><span class="s1">อัปเดตประวัติในหน้าผลลัพธ์</span><span class="s8"> (</span><span class="s1">ถ้าแสดงอยู่</span><span class="s8">)</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">      </span></span><span class="s4">if</span><span class="s17"> (!</span><span class="s1">document</span><span class="s17">.</span><span class="s1">getElementById</span><span class="s17">(</span><span class="s7">'page-results'</span><span class="s17">).</span><span class="s1">classList</span><span class="s17">.</span><span class="s1">contains</span><span class="s17">(</span><span class="s7">'hidden'</span><span class="s17">)) {</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">        </span></span><span class="s1">renderHistory</span><span class="s17">();</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span>} </span><span class="s4">catch</span><span class="s1"> (</span><span class="s20">err</span><span class="s1">) {</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s23">console</span><span class="s5">.</span><span class="s23">error</span><span class="s5">(</span><span class="s1">"</span><span class="s15">ไม่สามารถดึงข้อมูลประวัติจาก</span><span class="s1"> Google Sheets </span><span class="s15">ได้</span><span class="s1">:"</span><span class="s5">, </span><span class="s23">err</span><span class="s5">);</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p6"><span class="s1">}</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p10"><span class="s1">// ===== </span><span class="s15">ฟังก์ชันแสดงผลอื่นๆ</span><span class="s1"> (showResults, showForm, renderResults, drawRadarChart, renderHistory, </span><span class="s15">ฯลฯ</span><span class="s1">) =====</span></p>
-<p class="p13"><span class="s8">// (</span><span class="s1">คัดลอกโค้ดเดิมมาวางได้เลย</span><span class="s8">)</span></p>
-<p class="p9"><span class="s14"></span><br></p>
-<p class="p11"><span class="s1">document</span><span class="s17">.</span><span class="s1">addEventListener</span><span class="s17">(</span><span class="s7">'DOMContentLoaded'</span><span class="s17">, () =&gt; {</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">  </span></span><span class="s1">lucide</span><span class="s17">.</span><span class="s1">createIcons</span><span class="s17">();</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">  </span></span></p>
-<p class="p13"><span class="s24"><span class="Apple-converted-space">  </span></span><span class="s8">// </span><span class="s1">ให้ดึงข้อมูลประวัติจาก</span><span class="s8"> Sheets </span><span class="s1">อัตโนมัติเมื่อโหลดหน้าเว็บเสร็จ</span></p>
-<p class="p11"><span class="s17"><span class="Apple-converted-space">  </span></span><span class="s1">fetchHistoryFromSheet</span><span class="s17">();<span class="Apple-converted-space"> </span></span></p>
-<p class="p6"><span class="s1">});</span></p>
-<p class="p3"><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p14"><span class="s26">&lt;/</span><span class="s14">html</span><span class="s26">&gt;</span></p>
+
+ </head>
+
+ <body class="h-full" style="background: var(--bg); color: var(--text);">
+
+  <div id="app" class="h-full overflow-auto w-full">
+
+   <div id="page-form" class="w-full">
+
+    <div class="max-w-3xl mx-auto px-4 py-8">
+
+        </div>
+
+   </div>
+
+  </div>
+
+
+
+<script>
+
+// ==========================================
+
+// การตั้งค่า Google Sheets API (Web App URL)
+
+// ==========================================
+
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby6_taCxMcMxrBIs1mLZ4xfnJOcERqoQwInDU7kGFuFrTHNBynqV_v5gKEwzbLTtTRo2A/exec"; 
+
+// ==========================================
+
+
+
+// ===== EF Assessment Data =====
+
+const EF_SKILLS = [ /* ... ข้อมูลทักษะ 9 ด้านเหมือนเดิม ... */ ];
+
+// (คัดลอก EF_SKILLS, SCORE_OPTIONS, NORMS_, COMPONENT_NORMS_, GEC_NORMS_ เดิมมาวางทั้งหมด)
+
+
+
+// ฟังก์ชันดึงค่าแปลผล (คัดลอก lookupTScore และ interpretTScore เดิมมาวาง)
+
+function lookupTScore(normTable, rawScore) { /* ... โค้ดเดิม ... */ }
+
+function interpretTScore(t) { /* ... โค้ดเดิม ... */ }
+
+
+
+// ===== State =====
+
+let selectedGender = '';
+
+let selectedGrade = '';
+
+let currentSkillIdx = 0;
+
+let answers = {};
+
+let allRecords = []; // ข้อมูลประวัติที่จะดึงมาจาก Google Sheet
+
+let filteredRecords = [];
+
+let recordIndex = 0;
+
+
+
+// ===== UI Functions (คัดลอกโค้ด UI ของเดิมมาวาง) =====
+
+// selectGender, startQuestions, renderSkillQuestions, selectAnswer, 
+
+// updateProgress, getSkillQuestionRange, isSkillComplete, prevSkill, nextSkill, computeScores
+
+
+
+// ===== ฟังก์ชันบันทึกข้อมูลที่เปลี่ยนไปใช้ Google Sheets =====
+
+async function submitAssessment() {
+
+  document.getElementById('btn-submit').disabled = true;
+
+  document.getElementById('submit-loading').classList.remove('hidden');
+
+  document.getElementById('submit-error').classList.add('hidden');
+
+
+
+  const scores = computeScores(); // จากฟังก์ชันเดิม
+
+  const record = {
+
+    school_name: document.getElementById('school-input').value.trim(),
+
+    gender: selectedGender,
+
+    grade_level: selectedGrade,
+
+    created_at: new Date().toISOString()
+
+  };
+
+
+
+  // รวมคะแนนรายข้อ
+
+  for (let i = 1; i <= 45; i++) {
+
+    record[`q${i}`] = answers[`q${i}`] || 0;
+
+  }
+
+
+
+  // รวมคะแนนดิบและ T-Score
+
+  /* ... ใส่ลูป record[`${skill.key}_raw`] เหมือนโค้ดเดิม ... */
+
+
+
+  try {
+
+    // ยิง API ไปที่ Google Apps Script
+
+    const response = await fetch(SCRIPT_URL, {
+
+      method: "POST",
+
+      // ใช้ text/plain เพื่อป้องกันปัญหาเรื่อง CORS preflight ของเบราว์เซอร์
+
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+
+      body: JSON.stringify(record)
+
+    });
+
+    
+
+    const result = await response.json();
+
+    
+
+    document.getElementById('btn-submit').disabled = false;
+
+    document.getElementById('submit-loading').classList.add('hidden');
+
+
+
+    if (result.isOk) {
+
+      // เมื่อบันทึกเสร็จ ให้เพิ่มข้อมูลเข้าระบบเพื่อแสดงผลทันที
+
+      allRecords.push(record); 
+
+      showResults();
+
+    } else {
+
+      throw new Error(result.error || "Unknown error");
+
+    }
+
+  } catch (error) {
+
+    document.getElementById('btn-submit').disabled = false;
+
+    document.getElementById('submit-loading').classList.add('hidden');
+
+    document.getElementById('submit-error').textContent = 'เกิดข้อผิดพลาดในการบันทึก: ' + error.message;
+
+    document.getElementById('submit-error').classList.remove('hidden');
+
+  }
+
+}
+
+
+
+// ===== ฟังก์ชันดึงประวัติข้อมูลตอนเปิดเว็บ =====
+
+async function fetchHistoryFromSheet() {
+
+  try {
+
+    const response = await fetch(SCRIPT_URL);
+
+    const data = await response.json();
+
+    if (data && Array.isArray(data)) {
+
+      allRecords = data;
+
+      // แปลงวันที่กลับมาให้ถูกต้อง
+
+      allRecords.forEach(r => {
+
+        if (r.created_at) r.created_at = new Date(r.created_at).toISOString();
+
+      });
+
+      // อัปเดตประวัติในหน้าผลลัพธ์ (ถ้าแสดงอยู่)
+
+      if (!document.getElementById('page-results').classList.contains('hidden')) {
+
+        renderHistory();
+
+      }
+
+    }
+
+  } catch (err) {
+
+    console.error("ไม่สามารถดึงข้อมูลประวัติจาก Google Sheets ได้:", err);
+
+  }
+
+}
+
+
+
+// ===== ฟังก์ชันแสดงผลอื่นๆ (showResults, showForm, renderResults, drawRadarChart, renderHistory, ฯลฯ) =====
+
+// (คัดลอกโค้ดเดิมมาวางได้เลย)
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  lucide.createIcons();
+
+  
+
+  // ให้ดึงข้อมูลประวัติจาก Sheets อัตโนมัติเมื่อโหลดหน้าเว็บเสร็จ
+
+  fetchHistoryFromSheet(); 
+
+});
+
+</script>
+
 </body>
+
 </html>
