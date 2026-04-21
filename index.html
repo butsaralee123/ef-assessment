@@ -1,110 +1,68 @@
 <!doctype html>
-
 <html lang="th" class="h-full">
-
- <head>
-
+<head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>แบบประเมินทักษะทางสมอง EF</title>
-
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&amp;family=Prompt:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-
   * { font-family: 'Sarabun', sans-serif; }
-
   .heading-font { font-family: 'Prompt', sans-serif; }
-
   html, body { height: 100%; margin: 0; }
 
   .radio-option { transition: all 0.2s ease; }
-
   .radio-option:hover { transform: translateY(-1px); }
-
   .radio-option.selected { border-color: var(--primary); background: rgba(var(--primary-rgb), 0.15); }
 
   .gender-option { transition: all 0.2s ease; cursor: pointer; }
-
   .gender-option:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-
   .gender-option.selected-male { border-color: #60a5fa; background: rgba(96, 165, 250, 0.1); }
-
   .gender-option.selected-female { border-color: #f472b6; background: rgba(244, 114, 182, 0.1); }
 
   :root {
-
     --bg: #0f172a;
-
     --surface: #1e293b;
-
     --surface-alt: #334155;
-
     --text: #f1f5f9;
-
     --text-secondary: #cbd5e1;
-
     --primary: #60a5fa;
-
     --primary-rgb: 96, 165, 250;
-
     --primary-light: rgba(96, 165, 250, 0.1);
-
     --secondary: #34d399;
-
     --accent: #fbbf24;
-
     --danger: #f87171;
-
   }
 
   .progress-bar { transition: width 0.5s ease; }
-
   .fade-in { animation: fadeIn 0.4s ease; }
-
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
   .skill-card { transition: all 0.3s ease; }
-
   .skill-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
 
   .bar-animate { animation: growBar 0.8s ease forwards; }
-
   @keyframes growBar { from { width: 0; } }
 
   .score-badge { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
 
   .icon-btn { transition: all 0.2s ease; }
-
   .icon-btn:hover { transform: scale(1.05); }
 
+  /* Scrollbar styling */
   ::-webkit-scrollbar { width: 8px; }
-
   ::-webkit-scrollbar-track { background: var(--bg); }
-
   ::-webkit-scrollbar-thumb { background: var(--surface-alt); border-radius: 4px; }
-
   ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
-
-  body { box-sizing: border-box; }
-
   </style>
-
+  <style>body { box-sizing: border-box; }</style>
  </head>
-
- <body class="h-full" style="background: var(--bg); color: var(--text);">
-
-  <div id="app" class="h-full overflow-auto w-full">
-
+ <body>
+<div id="app" class="h-full overflow-auto w-full">
+   <!-- PAGE: FORM -->
    <div id="page-form" class="w-full">
-
- <div class="max-w-3xl mx-auto px-4 py-8">
+    <div class="max-w-3xl mx-auto px-4 py-8">
      <!-- Header -->
      <div class="text-center mb-8 fade-in">
       <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4" style="background: var(--primary);">
@@ -277,22 +235,17 @@
     </div>
    </div>
   </div>
+
   <script>
+    // ==========================================
+    // ส่วนเชื่อมต่อ Google Sheets (เอา Web App URL ของคุณมาวางในเครื่องหมายคำพูด)
+    // ==========================================
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzPxnMQi5M_F7fGkNCIuLvwrcKLzFSplAwweld_CUae/dev"; 
 
-// ==========================================
-
-// การตั้งค่า Google Sheets API (Web App URL)
-
-// ==========================================
-
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby6_taCxMcMxrBIs1mLZ4xfnJOcERqoQwInDU7kGFuFrTHNBynqV_v5gKEwzbLTtTRo2A/exec"; 
-
-// ==========================================
-
-
-
-// ===== EF Assessment Data =====
-const EF_SKILLS = [
+    // ==========================================
+    // จุดที่ 2: ส่วนของตัวแปรข้อมูลคำถามและเกณฑ์คะแนน
+    // ==========================================
+   const EF_SKILLS = [
   {
     name: 'การยับยั้ง (Inhibit)',
     key: 'inhibit',
@@ -401,8 +354,6 @@ const SCORE_OPTIONS = [
   { value: 3, label: 'ทุกครั้ง', desc: 'พบทุกครั้งที่สังเกต', emoji: '🟡' }
 ];
 
-
-
 // Norm tables
 // Grade 6 Norms
 const NORMS_MALE_G6 = {
@@ -483,8 +434,11 @@ const GEC_NORMS_FEMALE_G6 = { 0:19, 10:23, 20:27, 30:31, 40:35, 50:39, 55:41, 60
 const GEC_NORMS_MALE_G3 = { 0:18, 10:22, 20:26, 30:30, 40:34, 50:38, 55:40, 60:42, 65:44, 70:46, 75:48, 80:50, 85:52, 90:54, 95:56, 100:58, 105:60, 110:63, 115:66, 120:69, 125:72, 130:75, 135:78 };
 const GEC_NORMS_FEMALE_G3 = { 0:17, 10:21, 20:25, 30:29, 40:33, 50:37, 55:39, 60:41, 65:43, 70:45, 75:48, 80:50, 85:52, 90:55, 95:57, 100:59, 105:62, 110:65, 115:68, 120:71, 125:74, 130:77, 135:80 };
 
-
-
+    // ==========================================
+    // จุดที่ 3: ส่วนของฟังก์ชันการทำงานทั้งหมด
+    // ==========================================
+    /* นำโค้ดฟังก์ชันทั้งหมดจากไฟล์ต้นฉบับมาวาง (เช่น lookupTScore, startQuestions, selectAnswer, nextSkill, computeScores ฯลฯ)
+       **ยกเว้น** ฟังก์ชัน submitAssessment เดิม ไม่ต้องเอามา */
 function lookupTScore(normTable, rawScore) {
   const keys = Object.keys(normTable).map(Number).sort((a,b) => a - b);
   let closest = keys[0];
@@ -503,173 +457,176 @@ function interpretTScore(t) {
   return { level: 'ต่ำกว่าเกณฑ์เฉลี่ยมาก (ควรพัฒนาอย่างยิ่ง)', color: '#f87171', bg: 'rgba(248, 113, 113, 0.1)' };
 }
 
-
 // ===== State =====
-
 let selectedGender = '';
-
 let selectedGrade = '';
-
 let currentSkillIdx = 0;
-
 let answers = {};
-
-let allRecords = []; // ข้อมูลประวัติที่จะดึงมาจาก Google Sheet
-
+let allRecords = [];
 let filteredRecords = [];
-
 let recordIndex = 0;
 
-
-
-// ===== UI Functions (คัดลอกโค้ด UI ของเดิมมาวาง) =====
-
-// selectGender, startQuestions, renderSkillQuestions, selectAnswer, 
-
-// updateProgress, getSkillQuestionRange, isSkillComplete, prevSkill, nextSkill, computeScores
-
-
-
-// ===== ฟังก์ชันบันทึกข้อมูลที่เปลี่ยนไปใช้ Google Sheets =====
-
-async function submitAssessment() {
-
-  document.getElementById('btn-submit').disabled = true;
-
-  document.getElementById('submit-loading').classList.remove('hidden');
-
-  document.getElementById('submit-error').classList.add('hidden');
-
-
-
-  const scores = computeScores(); // จากฟังก์ชันเดิม
-
-  const record = {
-
-    school_name: document.getElementById('school-input').value.trim(),
-
-    gender: selectedGender,
-
-    grade_level: selectedGrade,
-
-    created_at: new Date().toISOString()
-
-  };
-
-
-
-  // รวมคะแนนรายข้อ
-
-  for (let i = 1; i <= 45; i++) {
-
-    record[`q${i}`] = answers[`q${i}`] || 0;
-
-  }
-
-
-
-  // รวมคะแนนดิบและ T-Score
-
-  /* ... ใส่ลูป record[`${skill.key}_raw`] เหมือนโค้ดเดิม ... */
-
-
-
-  try {
-
-    // ยิง API ไปที่ Google Apps Script
-
-    const response = await fetch(SCRIPT_URL, {
-
-      method: "POST",
-
-      // ใช้ text/plain เพื่อป้องกันปัญหาเรื่อง CORS preflight ของเบราว์เซอร์
-
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-
-      body: JSON.stringify(record)
-
-    });
-
-    
-
-    const result = await response.json();
-
-    
-
-    document.getElementById('btn-submit').disabled = false;
-
-    document.getElementById('submit-loading').classList.add('hidden');
-
-
-
-    if (result.isOk) {
-
-      // เมื่อบันทึกเสร็จ ให้เพิ่มข้อมูลเข้าระบบเพื่อแสดงผลทันที
-
-      allRecords.push(record); 
-
-      showResults();
-
-    } else {
-
-      throw new Error(result.error || "Unknown error");
-
-    }
-
-  } catch (error) {
-
-    document.getElementById('btn-submit').disabled = false;
-
-    document.getElementById('submit-loading').classList.add('hidden');
-
-    document.getElementById('submit-error').textContent = 'เกิดข้อผิดพลาดในการบันทึก: ' + error.message;
-
-    document.getElementById('submit-error').classList.remove('hidden');
-
-  }
-
+// ===== UI Functions =====
+function selectGender(g) {
+  selectedGender = g;
+  document.getElementById('gender-male').className = 'gender-option flex flex-col items-center p-4 rounded-xl border-2 bg-black/10 hover:bg-black/20 ' + (g === 'male' ? 'selected-male border-blue-400' : 'border-primary/20');
+  document.getElementById('gender-female').className = 'gender-option flex flex-col items-center p-4 rounded-xl border-2 bg-black/10 hover:bg-black/20 ' + (g === 'female' ? 'selected-female border-pink-400' : 'border-primary/20');
 }
 
+function startQuestions() {
+  const school = document.getElementById('school-input').value.trim();
+  const grade = document.getElementById('grade-select').value;
+  if (!school || !selectedGender || !grade) {
+    document.getElementById('info-error').classList.remove('hidden');
+    return;
+  }
+  document.getElementById('info-error').classList.add('hidden');
+  selectedGrade = grade;
+  document.getElementById('step-info').classList.add('hidden');
+  document.getElementById('step-questions').classList.remove('hidden');
+  currentSkillIdx = 0;
+  renderSkillQuestions();
+  updateProgress();
+}
 
+function renderSkillQuestions() {
+  const skill = EF_SKILLS[currentSkillIdx];
+  const container = document.getElementById('questions-container');
+  let qNum = 0;
+  for (let i = 0; i < currentSkillIdx; i++) qNum += EF_SKILLS[i].questions.length;
 
-// ===== ฟังก์ชันดึงประวัติข้อมูลตอนเปิดเว็บ =====
+  let html = `<div class="fade-in rounded-2xl p-6 shadow-lg border border-primary/20" style="background:var(--surface);">
+    <div class="flex items-center gap-2 mb-1">
+      <span class="text-xs font-semibold px-2 py-1 rounded-full" style="background:var(--primary-light);color:var(--primary);">ทักษะที่ ${currentSkillIdx+1}/9</span>
+    </div>
+    <h2 class="heading-font text-lg font-semibold mb-4" style="color:var(--primary);">${skill.name}</h2>`;
 
-async function fetchHistoryFromSheet() {
+  skill.questions.forEach((q, qi) => {
+    const globalIdx = qNum + qi;
+    html += `<div class="mb-5 pb-5 ${qi < skill.questions.length-1 ? 'border-b border-primary/20' : ''}">
+      <p class="font-medium mb-3 text-sm"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs text-white mr-1" style="background:var(--primary);">${globalIdx+1}</span> ${q}</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-2">`;
+    SCORE_OPTIONS.forEach(opt => {
+      const selected = answers[`q${globalIdx+1}`] === opt.value;
+      html += `<div onclick="selectAnswer(${globalIdx+1}, ${opt.value})" class="radio-option cursor-pointer rounded-xl border-2 p-3 text-center transition ${selected ? 'selected' : 'border-primary/20 bg-black/10 hover:bg-black/20'}" style="${selected ? 'border-color:var(--primary);background:var(--primary-light);' : ''}">
+        <div class="text-lg">${opt.emoji}</div>
+        <div class="font-semibold text-sm">${opt.label}</div>
+        <div class="text-xs text-gray-400">(${opt.value})</div>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
 
-  try {
+  html += `</div>`;
+  container.innerHTML = html;
 
-    const response = await fetch(SCRIPT_URL);
+  document.getElementById('btn-prev').style.display = currentSkillIdx === 0 ? 'none' : 'block';
+  const isLast = currentSkillIdx === EF_SKILLS.length - 1;
+  document.getElementById('btn-next').textContent = isLast ? '✓ เสร็จสิ้น' : 'ถัดไป ➜';
 
-    const data = await response.json();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  lucide.createIcons();
+}
 
-    if (data && Array.isArray(data)) {
+function selectAnswer(qIdx, value) {
+  answers[`q${qIdx}`] = value;
+  renderSkillQuestions();
+  updateProgress();
+}
 
-      allRecords = data;
+function updateProgress() {
+  const total = 45;
+  const answered = Object.keys(answers).length;
+  const pct = Math.round((answered / total) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-pct').textContent = pct + '%';
+  const skill = EF_SKILLS[currentSkillIdx];
+  document.getElementById('progress-label').textContent = skill ? skill.name : 'เสร็จสิ้น';
+}
 
-      // แปลงวันที่กลับมาให้ถูกต้อง
+function getSkillQuestionRange(skillIdx) {
+  let start = 0;
+  for (let i = 0; i < skillIdx; i++) start += EF_SKILLS[i].questions.length;
+  const count = EF_SKILLS[skillIdx].questions.length;
+  return { start: start + 1, end: start + count };
+}
 
-      allRecords.forEach(r => {
+function isSkillComplete(skillIdx) {
+  const { start, end } = getSkillQuestionRange(skillIdx);
+  for (let i = start; i <= end; i++) {
+    if (answers[`q${i}`] === undefined) return false;
+  }
+  return true;
+}
 
-        if (r.created_at) r.created_at = new Date(r.created_at).toISOString();
+function prevSkill() {
+  if (currentSkillIdx > 0) {
+    currentSkillIdx--;
+    renderSkillQuestions();
+    updateProgress();
+  }
+}
 
-      });
+function nextSkill() {
+  if (!isSkillComplete(currentSkillIdx)) {
+    document.getElementById('question-error').classList.remove('hidden');
+    setTimeout(() => document.getElementById('question-error').classList.add('hidden'), 3000);
+    return;
+  }
+  if (currentSkillIdx < EF_SKILLS.length - 1) {
+    currentSkillIdx++;
+    renderSkillQuestions();
+    updateProgress();
+  } else {
+    document.getElementById('step-questions').classList.add('hidden');
+    document.getElementById('step-submit').classList.remove('hidden');
+    updateProgress();
+  }
+}
 
-      // อัปเดตประวัติในหน้าผลลัพธ์ (ถ้าแสดงอยู่)
-
-      if (!document.getElementById('page-results').classList.contains('hidden')) {
-
-        renderHistory();
-
-      }
-
-    }
-
-  } catch (err) {
-
-    console.error("ไม่สามารถดึงข้อมูลประวัติจาก Google Sheets ได้:", err);
-
+function computeScores() {
+  const gender = selectedGender;
+  const grade = selectedGrade;
+  
+  let norms, compNorms, gecNorms;
+  if (grade === '3') {
+    norms = gender === 'male' ? NORMS_MALE_G3 : NORMS_FEMALE_G3;
+    compNorms = gender === 'male' ? COMPONENT_NORMS_MALE_G3 : COMPONENT_NORMS_FEMALE_G3;
+    gecNorms = gender === 'male' ? GEC_NORMS_MALE_G3 : GEC_NORMS_FEMALE_G3;
+  } else {
+    norms = gender === 'male' ? NORMS_MALE_G6 : NORMS_FEMALE_G6;
+    compNorms = gender === 'male' ? COMPONENT_NORMS_MALE_G6 : COMPONENT_NORMS_FEMALE_G6;
+    gecNorms = gender === 'male' ? GEC_NORMS_MALE_G6 : GEC_NORMS_FEMALE_G6;
   }
 
+  const rawScores = {};
+  let qIdx = 1;
+  EF_SKILLS.forEach(skill => {
+    let sum = 0;
+    skill.questions.forEach(() => {
+      sum += (answers[`q${qIdx}`] || 0);
+      qIdx++;
+    });
+    rawScores[skill.key] = sum;
+  });
+
+  const tScores = {};
+  EF_SKILLS.forEach(skill => {
+    tScores[skill.key] = lookupTScore(norms[skill.key], rawScores[skill.key]);
+  });
+
+  const briRaw = rawScores.inhibit + rawScores.self_monitor;
+  const eriRaw = rawScores.emotional_control + rawScores.shift;
+  const criRaw = rawScores.task_monitor + rawScores.organization_materials + rawScores.plan_organize + rawScores.working_memory + rawScores.initiate;
+
+  const briT = lookupTScore(compNorms.bri, briRaw);
+  const eriT = lookupTScore(compNorms.eri, eriRaw);
+  const criT = lookupTScore(compNorms.cri, criRaw);
+
+  const gecRaw = briRaw + eriRaw + criRaw;
+  const gecT = lookupTScore(gecNorms, gecRaw);
+
+  return { rawScores, tScores, briRaw, briT, eriRaw, eriT, criRaw, criT, gecRaw, gecT };
 }
 
 function showResults() {
@@ -1126,54 +1083,91 @@ function applyConfig(config) {
   if (resSub) resSub.textContent = sub;
 }
 
-window.elementSdk.init({
-  defaultConfig,
-  onConfigChange: async (config) => { applyConfig(config); },
-  mapToCapabilities: (config) => ({
-    recolorables: [],
-    borderables: [],
-    fontEditable: undefined,
-    fontSizeable: undefined
-  }),
-  mapToEditPanelValues: (config) => new Map([
-    ['app_title', config.app_title || defaultConfig.app_title],
-    ['subtitle_text', config.subtitle_text || defaultConfig.subtitle_text]
-  ])
-});
+    // ==========================================
+    // จุดที่ 4: ฟังก์ชันส่งข้อมูลเข้า Google Sheets (ฉบับสมบูรณ์)
+    // ==========================================
+    async function submitAssessment() {
+      document.getElementById('btn-submit').disabled = true;
+      document.getElementById('submit-loading').classList.remove('hidden');
+      
+      const scores = computeScores();
+      const record = {
+        school_name: document.getElementById('school-input').value.trim(),
+        gender: selectedGender,
+        grade_level: selectedGrade,
+        created_at: new Date().toISOString()
+      };
 
-// Data SDK
-const dataHandler = {
-  onDataChanged(data) {
-    allRecords = data;
-    if (!document.getElementById('page-results').classList.contains('hidden')) {
-      renderHistory();
-      if (data.length > 0) {
-        renderResults(data[data.length - 1]);
+      // 1. เก็บคำตอบรายข้อ 45 ข้อ
+      for (let i = 1; i <= 45; i++) {
+        record[`q${i}`] = answers[`q${i}`] || 0;
+      }
+
+      // 2. เก็บผลคะแนนดิบและ T-Score รายทักษะ 9 ด้าน
+      EF_SKILLS.forEach(skill => {
+        record[`${skill.key}_raw`] = scores.rawScores[skill.key];
+        record[`${skill.key}_t`] = scores.tScores[skill.key];
+      });
+
+      // 3. เก็บผลคะแนนองค์ประกอบและภาพรวม (สำคัญมากสำหรับการทำกราฟ)
+      record.bri_raw = scores.briRaw; record.bri_t = scores.briT;
+      record.eri_raw = scores.eriRaw; record.eri_t = scores.eriT;
+      record.cri_raw = scores.criRaw; record.cri_t = scores.criT;
+      record.gec_raw = scores.gecRaw; record.gec_t = scores.gecT;
+
+      try {
+        const response = await fetch(SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(record)
+        });
+        
+        const result = await response.json();
+        document.getElementById('submit-loading').classList.add('hidden');
+
+        if (result.isOk) {
+          allRecords.push(record); // อัปเดตข้อมูลลงหน้าเว็บทันที
+          showResults(); // เปลี่ยนหน้าไปแสดงผลกราฟ
+        } else {
+          alert("เกิดข้อผิดพลาดจากเซิร์ฟเวอร์: " + result.error);
+          document.getElementById('btn-submit').disabled = false;
+        }
+      } catch (error) {
+        document.getElementById('submit-loading').classList.add('hidden');
+        document.getElementById('btn-submit').disabled = false;
+        alert("ไม่สามารถบันทึกข้อมูลได้ กรุณาลองอีกครั้ง (" + error.message + ")");
       }
     }
-  }
-};
 
-(async () => {
-  const initResult = await window.dataSdk.init(dataHandler);
-  if (!initResult.isOk) {
-    console.error('Failed to init data SDK');
-  }
-})();
-document.addEventListener('DOMContentLoaded', () => {
+    // ฟังก์ชันดึงประวัติข้อมูลจาก Sheets เมื่อเปิดเว็บ
+    async function fetchHistoryFromSheet() {
+      try {
+        const response = await fetch(SCRIPT_URL);
+        const data = await response.json();
+        if (data && Array.isArray(data)) {
+          allRecords = data;
+          allRecords.forEach(r => {
+            if (r.created_at) r.created_at = new Date(r.created_at).toISOString();
+          });
+        }
+      } catch (err) {
+        console.error("ดึงข้อมูลประวัติไม่สำเร็จ:", err);
+      }
+    }
 
-  lucide.createIcons();
-
-  
-
-  // ให้ดึงข้อมูลประวัติจาก Sheets อัตโนมัติเมื่อโหลดหน้าเว็บเสร็จ
-
-  fetchHistoryFromSheet(); 
-
-});
-
-</script>
-
+    // ==========================================
+    // คำสั่งเริ่มต้นการทำงาน (ห้ามลบ)
+    // ==========================================
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      fetchHistoryFromSheet(); // สั่งให้ดึงข้อมูลประวัติทันทีที่เปิดเว็บ
+    });
+    // ==========================================
+    // คำสั่งเริ่มต้นการทำงาน (ห้ามลบ)
+    // ==========================================
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
 </body>
-
 </html>
